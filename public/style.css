@@ -1,0 +1,89 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+main.wrapper {
+  width: 50vw;
+}
+
+/* @font-face {
+  font-family: "Rosette";
+  src: url("../public/rosette.ttf") format("truetype");
+} */
+
+input.letters {
+  padding: 5px 10px;
+  font-family: dingbats;
+  outline: none;
+  height: 20px;
+  border: none;
+  margin: 0;
+  width: calc(50vw - 50px);
+}
+
+.display {
+  font-family: monospace;
+  font-size: 1.25rem;
+  margin-top: 10px;
+  background: #333;
+  color: #fff;
+  padding: 5px 10px;
+  height: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px;
+  background: #666;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+
+.btn:hover {
+  background: #666;
+}
+
+.snowflake > span {
+  font-size: calc((1vmin / 10) * var(--size));
+  color: #fff;
+}
+
+.snowflake {
+  font-family: wingdings;
+  margin: 0;
+  position: absolute;
+  border-radius: 50%;
+  top: calc(var(--y, 50) * 1%);
+  left: calc(var(--x, 50) * 1%);
+  opacity: var(--opacity);
+  transform: translate(-50%, -50%);
+  animation: float calc(var(--d, 1) * 1s) calc(var(--delay, 0) * -1s) infinite linear both;
+}
+
+/* .snowflake::before {
+  display: block;
+  content: '️❄️';
+  font-size: calc((1vmin / 10) * var(--size));
+  position: absolute;
+} */
+
+@keyframes float {
+  from {
+    transform: translate(-50%, -50%) translate(0, -100vh) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) translate(0, 100vh) rotate(calc(360deg * var(--dir)));
+  }
+}

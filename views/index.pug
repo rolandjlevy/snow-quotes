@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+  include head.pug
+
+  body
+    main.wrapper
+      form(method="post" action="/snow")
+        input(
+          type="text"
+          class="letters"
+          name="letters"
+          autocomplete="off"
+          tabindex="0"
+          autofocus
+        )
+        button(
+          type="submit"
+          class="btn"
+        ) Go!
+      div.display
+      
+  script
+    include ../public/script.js

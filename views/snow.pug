@@ -1,0 +1,27 @@
+- const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+- const dir = [1, -1];
+- const toggle = () => dir[Math.floor(Math.random() * dir.length)];
+- const arr = letters.split('');
+- const getRandomLetter = () => arr[Math.floor(Math.random() * arr.length)];
+- const snowflakes = ['❄', '❅', '❆', '❉', '❊', '❄'];
+- const total = 200;
+- let n = 0;
+
+doctype html
+html
+  head
+  include head.pug
+
+  body
+    while n < total
+      - const size = random(15, 30);
+      - const op = parseFloat(random(3, 7) / 10);
+      - const x = random(0, 100);
+      - const y = random(0, 100);
+      - const r = random(-1, 1);
+      - const d = random(5, 20);
+      - const delay = random(0, d);
+      - n++;
+      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${op}; --dir:${toggle()}; --d:${d}; --delay:${delay}`)
+        span.inner #{getRandomLetter()}
+      
