@@ -36,6 +36,11 @@ const getQuote = (id) => {
   });
 }
 
+// getQuote(e.target.id).then(result => {
+//   $('.tooltip').textContent = result;
+//   $('.tooltip').classList.add('active');
+// });
+
 const filteredData = (arr) => {
   return arr.reduce((acc, item) => {
     if (item.author && item.author.toLowerCase().includes('dalai') == false) {

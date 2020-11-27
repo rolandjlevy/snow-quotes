@@ -3,7 +3,6 @@
 - const dir = [1, -1];
 - const lettersArr = letters.split('');
 - let n = 0;
-- const hex = randomHexString();
 
 doctype html
 html
@@ -19,7 +18,7 @@ html
       - const duration = randomNum(5, 30);
       - const delay = randomNum(0, duration);
       - n++;
-      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${randomHexString()}` id=`${n}`)
+      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${colours.randomHexString()}` id=`${n}`)
         span.inner #{randomItem(lettersArr).toUpperCase()}
     
     .tooltip

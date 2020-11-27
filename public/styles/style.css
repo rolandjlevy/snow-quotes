@@ -4,10 +4,15 @@
   /* --font-family:  fico; */
 }
 
-body {
-  box-sizing: border-box;
+html {
+  touch-action: manipulation;
+  user-select: none;
   margin: 0;
   padding: 0;
+}
+
+body {
+  box-sizing: border-box;
   background: #000;
   min-height: 100vh;
   display: flex;
