@@ -1,5 +1,6 @@
 :root {
   --font-family: wingdings;
+  --background-colour: #000922;
   /* --font-family: rosette; */
   /* --font-family:  fico; */
 }
@@ -13,7 +14,7 @@ html {
 
 body {
   box-sizing: border-box;
-  background: #000;
+  background: var(--background-colour);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -103,16 +104,16 @@ input.letters {
 
 .tooltip {
   position: fixed;
-  width: 30vmax;
+  width: 40vmax;
   top: calc(vh / 2);
   left: calc(vw / 2);
   min-width: 20px;
   min-height: 20px;
   padding: 20px;
-  background-color: #000;
+  background: var(--background-colour);
   color: #fff;
   font-family: 'Cormorant', serif;
-  font-size: 5vmin;
+  font-size: 4vmax;
   text-align: center;
   opacity: 0;
   transform: scale(0.7);
@@ -120,16 +121,9 @@ input.letters {
 }
 
 .tooltip.active {
-  opacity: 0.7;
+  opacity: 0.65;
   transform: scale(1);
   transition: all 0.25s ease;
   border: 1px dashed #fff;
 	box-shadow: 0 0 0 3px #000, 0 0 0 5px #fff, 0 0 0 10px #666, 0 0 2px 10px #999;
 }
-
-/* .snowflake::before {
-  display: block;
-  content: '️❄️';
-  font-size: calc((1vmin / 10) * var(--size));
-  position: absolute;
-} */
