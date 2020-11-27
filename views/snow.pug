@@ -1,11 +1,9 @@
-- const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+- const randomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 - const randomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 - const dir = [1, -1];
-- const toggle = () => dir[Math.floor(Math.random() * dir.length)];
-- const arr = letters.split('');
-- const getRandomLetter = () => arr[Math.floor(Math.random() * arr.length)];
-- const total = 200;
+- const lettersArr = letters.split('');
 - let n = 0;
+- const hex = randomHexString();
 
 doctype html
 html
@@ -13,15 +11,18 @@ html
   include head.pug
 
   body
-    while n < total
-      - const size = random(15, 30);
-      - const op = parseFloat(random(3, 7) / 10);
-      - const x = random(0, 100);
-      - const y = random(0, 100);
-      - const r = random(-1, 1);
-      - const d = random(5, 20);
-      - const delay = random(0, d);
+    while n < Number(quantity)
+      - const size = randomNum(5, 50);
+      - const opacity = parseFloat(randomNum(3, 7) / 10);
+      - const x = randomNum(0, 100);
+      - const y = randomNum(0, 100);
+      - const duration = randomNum(5, 30);
+      - const delay = randomNum(0, duration);
       - n++;
-      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${op}; --dir:${toggle()}; --d:${d}; --delay:${delay}`)
-        span.inner #{getRandomLetter()}
-      
+      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${randomHexString()}` id=`${n}`)
+        span.inner #{randomItem(lettersArr).toUpperCase()}
+    
+    .tooltip
+
+    script
+      include ../public/snow.js
