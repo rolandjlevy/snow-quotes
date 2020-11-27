@@ -14,14 +14,9 @@ main.wrapper {
   width: 50vw;
 }
 
-/* @font-face {
-  font-family: "Rosette";
-  src: url("../public/rosette.ttf") format("truetype");
-} */
-
 input.letters {
   padding: 5px 10px;
-  font-family: dingbats;
+  font-family: wingdings;
   outline: none;
   height: 20px;
   border: none;
@@ -64,6 +59,7 @@ input.letters {
   font-family: wingdings;
   margin: 0;
   position: absolute;
+  font-weight: bold;
   border-radius: 50%;
   top: calc(var(--y, 50) * 1%);
   left: calc(var(--x, 50) * 1%);
@@ -71,13 +67,6 @@ input.letters {
   transform: translate(-50%, -50%);
   animation: float calc(var(--d, 1) * 1s) calc(var(--delay, 0) * -1s) infinite linear both;
 }
-
-/* .snowflake::before {
-  display: block;
-  content: '️❄️';
-  font-size: calc((1vmin / 10) * var(--size));
-  position: absolute;
-} */
 
 @keyframes float {
   from {
@@ -87,3 +76,15 @@ input.letters {
     transform: translate(-50%, -50%) translate(0, 100vh) rotate(calc(360deg * var(--dir)));
   }
 }
+
+/* .snowflake::before {
+  display: block;
+  content: '️❄️';
+  font-size: calc((1vmin / 10) * var(--size));
+  position: absolute;
+} */
+
+/* @font-face {
+  font-family: "Rosette";
+  src: url("../public/rosette.ttf") format("truetype");
+} */
