@@ -8,7 +8,7 @@ let tooltipOn = false;
 $$('.snowflake').forEach(item => {
   item.addEventListener('mouseenter', (e) => {
     if (!tooltipOn) {
-      const pos = Number(e.target.id);
+      const pos = Number(e.target.id) || parseInt(e.target.id);
       const { text, author } = quotes[pos];
       const quote = `"${text}"` + (author ? ` ${author}` : '');
       $('.tooltip').textContent = quote;
