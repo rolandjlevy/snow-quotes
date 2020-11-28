@@ -5,7 +5,7 @@ Choose a colour and a number of shapes to fill the night sky with gently falling
 ### Links 🔗
 - [Play the game](https://js-balloon-popping-game.rolandjlevy.repl.co/)
 - [View the source code](https://repl.it/@RolandJLevy/express-snow-quotes)
-- [Explore the Github repo](https://github.com/rolandjlevy/js-balloon-popping-game)
+- [Explore the Github repo](https://github.com/rolandjlevy/express-snow-quotes)
 
 ### Features 💡
 - Choose the colour and the number of shapes you want
