@@ -3,7 +3,7 @@
 Choose a colour and a number of shapes to fill the night sky with gently falling snowflakes, with each one revealing a quote when you hover over it 💬
 
 ### Links 🔗
-- [Play the game](https://js-balloon-popping-game.rolandjlevy.repl.co/)
+- [See the demo](https://js-balloon-popping-game.rolandjlevy.repl.co/)
 - [View the source code](https://repl.it/@RolandJLevy/express-snow-quotes)
 - [Explore the Github repo](https://github.com/rolandjlevy/express-snow-quotes)
 
