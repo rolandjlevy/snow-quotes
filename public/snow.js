@@ -1,8 +1,6 @@
 const $ = selector => document.querySelector(selector);
 const $$ = selector => document.querySelectorAll(selector);
 
-const quotesApiUrl = 'https://type.fit/api/quotes';
-
 let tooltipOn = false;
 
 $$('.snowflake').forEach(item => {
@@ -30,7 +28,7 @@ const getVar = (elem, varName) => {
   return getComputedStyle(elem).getPropertyValue(varName).trim();
 }
 
-const setVar = (elem, varName, value) => {
+const setVar = (elem, varNaquotesApiUrlme, value) => {
   elem.style.setProperty(varName, value);
 }
 
