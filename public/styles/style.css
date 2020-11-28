@@ -1,6 +1,8 @@
 :root {
   --font-family: wingdings;
   --background-colour: #000922;
+  --quote-mark-colour: #8691a3;
+  --quote-border-colour: #8691a366;
   /* --font-family: rosette; */
   /* --font-family:  fico; */
 }
@@ -127,7 +129,7 @@ input.letters {
   transform: scale(1);
   transition: all 0.25s ease;
   border: 1px dashed #ffffffcc;
-	box-shadow: 0 0 0 2.5px #00000099, 0 0 0 5px #ffffff99, 0 0 0 10px #66666633, 0 0 2.5px 10px #99999966;
+	box-shadow: 0 0 0 2.5px #00092299, 0 0 0 5px var(--quote-border-colour), 0 0 0 10px #66666633, 0 0 2.5px 10px var(--quote-border-colour);
   background: #00092299;
 }
 
@@ -140,7 +142,7 @@ input.letters {
 .quote::after {
   transform: scale(1.75) !important;
   display: inline-block;
-  color: #999;
+  color: var(--quote-mark-colour);
 }
 
 .quote::before {

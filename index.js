@@ -10,19 +10,19 @@ const colours = new Colours();
 const port = process.env.PORT;
 const baseUrl = process.env.API_URL;
 
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  res.render('index.pug', {  });
+  res.render('index.pug', {});
 });
 
 app.post('/snow', (req, res) => {
-  const {letters, quantity, colour } = req.body;
+  const { letters, quantity, colour } = req.body;
   res.render('snow.pug', {
-    letters, 
+    letters,
     quantity,
     colour,
     colours,
