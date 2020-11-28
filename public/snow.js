@@ -8,8 +8,8 @@ $$('.snowflake').forEach(item => {
     if (!tooltipOn) {
       const pos = Number(e.target.id) || parseInt(e.target.id);
       const { text, author } = quotes[pos];
-      const quote = `"${text}"` + (author ? ` ${author}` : '');
-      $('.tooltip').textContent = quote;
+      const quote = `<span class="quote">${text}</span>` + (author ? ` ${author}` : '');
+      $('.tooltip').innerHTML = quote;
       $('.tooltip').classList.add('active');
       tooltipOn = true;
       e.currentTarget.style.animationPlayState = 'paused';

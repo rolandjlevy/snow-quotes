@@ -10,6 +10,8 @@ html {
   user-select: none;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -127,4 +129,26 @@ input.letters {
   border: 1px dashed #ffffffcc;
 	box-shadow: 0 0 0 2.5px #00000099, 0 0 0 5px #ffffff99, 0 0 0 10px #66666633, 0 0 2.5px 10px #99999966;
   background: #00092299;
+}
+
+.quote {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.quote::before,
+.quote::after {
+  transform: scale(1.75) !important;
+  display: inline-block;
+  color: #999;
+}
+
+.quote::before {
+  content: '\201C';
+  margin-right: calc(1vmax * 1.5);
+}
+
+.quote::after {
+  content: '\201D';
+  margin: 0 calc(1vmax);
 }
