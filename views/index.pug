@@ -7,38 +7,58 @@ html
 
   body
     main.wrapper
+      h1 Snow Quotes
       form(method="post" action="/snow")
-        input(
-          type="number"
-          class="quantity m-b-20"
-          name="quantity"
-          value="150"
-          min="1"
-          max="500"
-          autocomplete="off"
-          placeholder=""
-          required
-        )
+        label(
+          for="letters"
+          class="m-b-10"
+        ) What kind?
         input(
           type="text"
-          class="letters"
+          class="letters m-b-20"
           name="letters"
+          id="letters"
           value=`${initialInput}`
           autocomplete="off"
           placeholder=""
           required
         )
-        input(
-          type="color" 
-          name="colour"
-          value="#ffffff"
-          style="display:block;"
-        )
+        .fieldset
+          section.m-r-5
+            label(
+              for="quantity"
+              class="m-b-10"
+            ) How many?
+            input(
+              type="number"
+              class="quantity m-b-20"
+              name="quantity"
+              id="quantity"
+              value="150"
+              min="1"
+              max="500"
+              autocomplete="off"
+              placeholder=""
+              required
+            )
+          section.m-l-5
+            label(
+              for="colour"
+              class="m-b-10"
+            ) What colour?
+            input(
+              type="color" 
+              class="colour m-b-20"
+              name="colour"
+              id="colour"
+              value="#ffffff"
+              style="display:block;"
+            )
         button(
           type="submit"
           class="btn"
         ) Go!
-      div.display #{initialInput}
+      // div.display #{initialInput}
       
     script
       include ../public/index.js

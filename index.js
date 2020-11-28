@@ -3,32 +3,26 @@ const app = express();
 const path = require('path');
 const pug = require('pug');
 const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
 const tinyURL = require('tinyurl');
-
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const baseUrl = process.env.API_URL;
 
 const Colours = require('./Colours');
 const colours = new Colours();
 
-function rawBodyMiddleware(req, res, next) {
+app.use((req, res, next) => {
   req.rawBody = '';
-  req.on('data', (chunk) => {
-    req.rawBody += chunk;
-  });
+  req.on('data', (chunk) => req.rawBody += chunk);
   next();  
-}
+});
 
-app.use(rawBodyMiddleware);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-function afterMiddleware(req, res, next) {
+app.use((req, res, next) => {
   res.locals.data = req.rawBody ? req.body : req.query;
   next();
-}
-app.use(afterMiddleware);
+});
 
 app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
@@ -67,9 +61,9 @@ const getTinyURL = (url) => {
 }
 
 getTinyURL('http://rolandlevy.co.uk').then(result => {
-  console.log({result});
+  // console.log({result});
 });
 
 app.listen(() => {
-  console.log('Listening on port', port || 3000);
+  console.log('Listening on port', port);
 });
