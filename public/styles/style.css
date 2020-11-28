@@ -9,7 +9,7 @@
 
 html {
   touch-action: manipulation;
-  user-select: none;
+  /*user-select: none;*/
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -92,7 +92,7 @@ input.letters {
 }
 
 .snowflake > span {
-  font-weight: bold;
+  font-weight: normal;
   font-size: calc((1vmin / 5) * var(--size));
   color: var(--colour);
 }
