@@ -1,17 +1,22 @@
 :root {
-  --letters-font: Wingdings, Webdings, Zapf Dingbats, Dingbats;
+  --letters-font: Wingdings;
   --background-colour: #000922;
   --input-bg-colour: #182138;
-  --quote-mark-colour: #8691a3;
-  --quote-border-colour: #8691a366;
-  /* --font-family: rosette; */
+  --quote-mark-colour: #868fa3;
+  --quote-border-colour: #868fa366;
 }
 
 @font-face {
   font-family: 'Wingdings';
+  src:  local("Wingdings"),
+        local("Webdings"),
+        local("Zapf Dingbats"),
+        local("Dingbats"),
+        url("../fonts/wingding.woff") format("woff"),
+        url("../fonts/wingding.ttf") format("truetype");
+        /* url("../fonts/wingding.otf") format("opentype"), */
   font-style: normal;
   font-weight: normal;
-  src: local('Wingdings'), url('../fonts/wingding.woff') format('woff');
 }
 
 * {

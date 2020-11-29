@@ -11,7 +11,6 @@ $('input.letters').addEventListener('input', (e) => {
     return;
   }
   validate();
-  // $('div.display').textContent = e.target.value;
 });
 
 $('input.quantity').addEventListener('input', (e) => {
@@ -30,14 +29,19 @@ const validate = () => {
 }
 
 $('.btn.create').addEventListener('click', (e) => {
+  const link = `<a href="${getLink()}">Load Snow Quotes</a>`;
+  $('.link').innerHTML = link;
   e.preventDefault();
+});
+
+// $('.btn.create').href = getLink();
+
+const getLink = () => {
   const letters = encodeURIComponent($('input.letters').value);
   const quantity = encodeURIComponent($('input.quantity').value);
   const colour = encodeURIComponent($('input.colour').value);
-  const url = `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}`;
-  const link = `<a href="${url}">Load Snow Quotes</a>`;
-  $('.link').innerHTML = link;
-});
+  return `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}`;
+}
 
 $('input.letters').addEventListener('focus', (e) => {
   const input = e.target.value;
