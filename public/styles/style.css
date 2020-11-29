@@ -1,6 +1,7 @@
 :root {
-  --letters-font: wingdings;
+  --letters-font: Wingdings, Webdings, Zapf Dingbats, Dingbats;
   --background-colour: #000922;
+  --input-bg-colour: #182138;
   --quote-mark-colour: #8691a3;
   --quote-border-colour: #8691a366;
   /* --font-family: rosette; */
@@ -32,6 +33,7 @@ body {
 
 h1 {
   font-family: 'Cormorant', serif;
+  font-size: 2.5rem;
 }
 
 main.wrapper {
@@ -75,6 +77,8 @@ input {
   font-size: 1.25rem;
   border: none;
   outline: none;
+  background-color: var(--input-bg-colour);
+  color: #fff;
 }
 
 input.letters {
