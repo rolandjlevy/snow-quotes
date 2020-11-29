@@ -1,5 +1,5 @@
 :root {
-  --letters-font: Wingdings;
+  --letters-font: 'Mandalas';
   --background-colour: #000922;
   --input-bg-colour: #182138;
   --quote-mark-colour: #868fa3;
@@ -7,14 +7,8 @@
 }
 
 @font-face {
-  font-family: 'Wingdings';
-  src:  local("Wingdings"),
-        local("Webdings"),
-        local("Zapf Dingbats"),
-        local("Dingbats"),
-        url("../fonts/wingding.woff") format("woff"),
-        url("../fonts/wingding.ttf") format("truetype");
-        /* url("../fonts/wingding.otf") format("opentype"), */
+  font-family: 'Mandalas';
+  src:  url("../fonts/Mandalas-Xm7g.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
@@ -232,3 +226,15 @@ a.link:hover {
   content: '\201D';
   margin: 0 calc(1vmax / 2);
 }
+
+/* @font-face {
+  font-family: 'Wingdings';
+  src:  local("Wingdings"),
+        local("Webdings"),
+        local("Zapf Dingbats"),
+        local("Dingbats"),
+        url("../fonts/wingding.woff") format("woff"),
+        url("../fonts/wingding.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+} */
