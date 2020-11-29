@@ -7,6 +7,13 @@
   /* --font-family: rosette; */
 }
 
+@font-face {
+  font-family: 'Wingdings';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Wingdings'), url('../fonts/wingding.woff') format('woff');
+}
+
 * {
   box-sizing: border-box;
 }
