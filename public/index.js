@@ -36,7 +36,6 @@ $('.btn').addEventListener('click', (e) => {
   const colour = encodeURIComponent($('input.colour').value);
   const url = `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}`;
   const link = `<a href="${url}">Load Snow Quotes</a>`;
-  console.log({link})
   $('.link').innerHTML = link;
 });
 

@@ -124,6 +124,10 @@ input.colour {
   transition: all 0.25 ease;
 }
 
+.btn > i {
+  font-size: 1rem;
+}
+
 a.link, a.link:visited {
   color: #fff;
   font-size: 1.25rem;
