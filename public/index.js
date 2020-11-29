@@ -28,10 +28,10 @@ const validate = () => {
     quantity: $('input.quantity').value || null
   }
   const errors = Object.values(validForm).filter(n => n);
-  $('.btn').disabled = errors.length < 2;
+  $('.btn.create').disabled = errors.length < 2;
 }
 
-$('.btn').addEventListener('click', (e) => {
+$('.btn.create').addEventListener('click', (e) => {
   e.preventDefault();
   const letters = encodeURIComponent($('input.letters').value);
   const quantity = encodeURIComponent($('input.quantity').value);
