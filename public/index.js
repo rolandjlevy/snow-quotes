@@ -14,6 +14,8 @@ $('input.letters').addEventListener('input', (e) => {
   // $('div.display').textContent = e.target.value;
 });
 
+$('input.letters').focus();
+
 $('input.quantity').addEventListener('input', (e) => {
   if (e.target.value > 500) e.target.value = 500;
   if (e.target.value < 1) e.target.value = 1;
