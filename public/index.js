@@ -14,8 +14,6 @@ $('input.letters').addEventListener('input', (e) => {
   // $('div.display').textContent = e.target.value;
 });
 
-$('input.letters').focus();
-
 $('input.quantity').addEventListener('input', (e) => {
   if (e.target.value > 500) e.target.value = 500;
   if (e.target.value < 1) e.target.value = 1;
@@ -40,4 +38,11 @@ $('.btn.create').addEventListener('click', (e) => {
   const link = `<a href="${url}">Load Snow Quotes</a>`;
   $('.link').innerHTML = link;
 });
+
+$('input.letters').addEventListener('focus', (e) => {
+  const input = e.target.value;
+  e.target.value= '';
+  e.target.value = input; 
+});
+$('input.letters').focus();
 
