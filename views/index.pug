@@ -12,7 +12,7 @@ html
         label(
           for="letters"
           class="m-b-10"
-        ) What kind?
+        ) Shapes
         input(
           type="text"
           class="letters m-b-20"
@@ -23,15 +23,15 @@ html
           placeholder=""
           required
         )
-        .fieldset
+        .fieldset.m-b-20
           section.m-r-5
             label(
               for="quantity"
               class="m-b-10"
-            ) How many?
+            ) Quantity
             input(
               type="number"
-              class="quantity m-b-20"
+              class="quantity"
               name="quantity"
               id="quantity"
               value="150"
@@ -45,7 +45,7 @@ html
             label(
               for="colour"
               class="m-b-10"
-            ) What colour?
+            ) Colour
             input(
               type="color" 
               class="colour m-b-20"
@@ -55,9 +55,14 @@ html
               style="display:block;"
             )
         button(
-          type="submit"
+          type="button"
           class="btn"
-        ) Go!
+        ) 
+          span.m-r-5 Generate link
+          i(class="fas fa-link")
+          
+        .link
+          
       // div.display #{initialInput}
       
     script
