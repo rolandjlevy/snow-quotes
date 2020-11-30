@@ -15,7 +15,6 @@ $('input.letters').addEventListener('input', (e) => {
     e.target.value = str;
     return;
   }
-  // e.preventDefault();
 });
 
 $('input.quantity').addEventListener('input', (e) => {
@@ -35,12 +34,12 @@ const validate = () => {
   const valid = Object.values(validForm).filter(n => n);
   if (valid.length < 2) {
     $('.btn.start').classList.add('disabled');
-    $('a.link').classList.add('disabled');
+    $('.btn.copy').classList.add('disabled');
   } else {
     $('.btn.start').classList.remove('disabled');
+    $('.btn.copy').classList.remove('disabled');
     $('.btn.start').href = getLink();
-    $('a.link').classList.remove('disabled');
-    $('a.link').href = getLink();
+    $('input.hidden').value = location.href.slice(0, -1) + getLink();
   }
 }
 
@@ -57,6 +56,12 @@ $('input.letters').addEventListener('focus', (e) => {
   e.target.value = input; 
 });
 
+document.querySelector('.btn.copy').addEventListener('click', (e) => {
+  const copyText = document.querySelector('input.hidden');
+  copyText.select();
+  document.execCommand('copy');
+});
+
 $('input.letters').focus();
 $('.btn.start').href = getLink();
-$('a.link').href = getLink();
+$('input.hidden').value = location.href.slice(0, -1) + getLink();

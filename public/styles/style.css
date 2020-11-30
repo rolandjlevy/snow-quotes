@@ -98,6 +98,11 @@ input.colour {
   padding: 3px;
 }
 
+input.hidden {
+  position: absolute; 
+  left: -99999px;
+}
+
 .display {
   font-family: monospace;
   font-size: 1.25rem;
