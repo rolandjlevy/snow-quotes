@@ -2,21 +2,29 @@ const $ = selector => document.querySelector(selector);
 const $$ = selector => document.querySelectorAll(selector);
 
 const isTag = (str) => /<[^>]*>/g.test(str);
+const inFontSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
 
 $('input.letters').addEventListener('input', (e) => {
   const input = e.target.value;
   if (isTag(input)) {
     e.target.value = '⚠️';
-    $('div.display').textContent = 'error';
     return;
   }
-  validate();
+  if (!inFontSet(input)) {
+    const str = $('input.letters').value.slice(0,-1);
+    e.target.value = str;
+    return;
+  }
+  // e.preventDefault();
 });
 
 $('input.quantity').addEventListener('input', (e) => {
-  if (e.target.value > 500) e.target.value = 500;
+  if (e.target.value > 250) e.target.value = 250;
   if (e.target.value < 1) e.target.value = '';
-  validate();
+});
+
+$$('input').forEach(item => {
+  item.addEventListener('input', (e) => validate());
 });
 
 const validate = () => {
@@ -24,17 +32,17 @@ const validate = () => {
     letters: $('input.letters').value || null,
     quantity: $('input.quantity').value || null
   }
-  const errors = Object.values(validForm).filter(n => n);
-  $('.btn.create').disabled = errors.length < 2;
+  const valid = Object.values(validForm).filter(n => n);
+  if (valid.length < 2) {
+    $('.btn.start').classList.add('disabled');
+    $('a.link').classList.add('disabled');
+  } else {
+    $('.btn.start').classList.remove('disabled');
+    $('.btn.start').href = getLink();
+    $('a.link').classList.remove('disabled');
+    $('a.link').href = getLink();
+  }
 }
-
-$('.btn.create').addEventListener('click', (e) => {
-  const link = `<a href="${getLink()}">Load Snow Quotes</a>`;
-  $('.link').innerHTML = link;
-  e.preventDefault();
-});
-
-// $('.btn.create').href = getLink();
 
 const getLink = () => {
   const letters = encodeURIComponent($('input.letters').value);
@@ -48,5 +56,7 @@ $('input.letters').addEventListener('focus', (e) => {
   e.target.value= '';
   e.target.value = input; 
 });
-$('input.letters').focus();
 
+$('input.letters').focus();
+$('.btn.start').href = getLink();
+$('a.link').href = getLink();

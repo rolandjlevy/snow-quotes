@@ -51,19 +51,6 @@ const renderSnow = ({req, res}) => {
   });
 }
 
-const getTinyURL = (url) => {
-  return new Promise((resolve, reject) => {
-    return tinyURL.shorten(url, (res, err) => {
-      if (err) reject(err);
-      resolve(res);
-    });
-  });
-}
-
-getTinyURL('http://rolandlevy.co.uk').then(result => {
-  // console.log({result});
-});
-
 app.listen(() => {
   console.log('Listening on port', port);
 });

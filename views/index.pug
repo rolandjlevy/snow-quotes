@@ -1,4 +1,4 @@
-- const initialInput = 'AXTVBF';
+- const initialInput = 'qweuiadfzxcvbn';
 
 doctype html
 html(xmlns="http://www.w3.org/1999/xhtml")
@@ -12,7 +12,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
         label(
           for="letters"
           class="m-b-10"
-        ) Type for different symbols
+        ) Type numbers [0-9] or letters [a-z]
         input(
           type="text"
           class="letters m-b-20"
@@ -56,21 +56,24 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             )
         .fieldset.m-b-20
           section.m-r-5
-            button(
-              type="submit"
-              class="btn go"
-            ) Go!
-          section.m-l-5
-            button(
+            a(
               type="button"
-              class="btn create"
+              class="btn start"
+            ) Start the snow!
+          section.m-l-5
+            // a.link(
+            //   href="#"
+            // ) 
+            //   span.m-r-5 Share 
+            //   i(class="fas fa-link")
+            a(
+              type="button"
+              class="btn start"
+              href="#"
             ) 
-              span.m-r-5 Get link
-              i(class="fas fa-link")
+              span.m-r-5 Copy link
+              i(class="fas fa-copy")
           
-            .link
-          
-      // div.display #{initialInput}
       
     script
       include ../public/index.js

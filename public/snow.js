@@ -1,14 +1,19 @@
 const $ = selector => document.querySelector(selector);
 const $$ = selector => document.querySelectorAll(selector);
 
+const shuffle = arr => arr.sort(() => Math.random() - 0.5);
+const getVar = (elem, varName) => getComputedStyle(elem).getPropertyValue(varName).trim();
+const setVar = (elem, varNaquotesApiUrlme, value) => elem.style.setProperty(varName, value);
+
 let tooltipOn = false;
 
 $$('.snowflake').forEach(item => {
   item.addEventListener('mouseenter', (e) => {
     if (!tooltipOn) {
       const pos = Number(e.target.id) || parseInt(e.target.id);
-      const { text, author } = quotes[pos];
-      const quote = `<span class="quote">${text}</span>` + (author ? ` ${author}` : '');
+      const author = !!quotes[pos].author ? ` ${quotes[pos].author}` : '';
+      const quote = `<span class="quote">${quotes[pos].text}</span>${author}`;
+      // console.log(e.target.id, pos, author)
       $('.tooltip').innerHTML = quote;
       $('.tooltip').classList.add('active');
       tooltipOn = true;
@@ -24,14 +29,6 @@ $$('.snowflake').forEach(item => {
   });
 });
 
-const getVar = (elem, varName) => {
-  return getComputedStyle(elem).getPropertyValue(varName).trim();
-}
-
-const setVar = (elem, varNaquotesApiUrlme, value) => {
-  elem.style.setProperty(varName, value);
-}
-
 const fetchQuotes = () => {
   return new Promise((resolve, reject) => {
     return fetch(quotesApiUrl)
@@ -45,13 +42,14 @@ const fetchQuotes = () => {
 
 const filteredQuotes = (arr) => {
   const ignoreList = ['trump', 'dalai'];
-  return arr.reduce((acc, item) => {
+  const filtered = arr.reduce((acc, item) => {
     const ignore = item.author && item.author.split(' ').some(word => ignoreList.includes(word.toLowerCase()));
     if (ignore == false) {
       acc.push(item);
     }
     return acc;
   }, []);
+  return shuffle(filtered);
 }
 
 let quotes;

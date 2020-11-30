@@ -1,9 +1,10 @@
 :root {
   --letters-font: 'Mandalas';
-  --background-colour: #000922;
-  --input-bg-colour: #182138;
-  --quote-mark-colour: #868fa3;
-  --quote-border-colour: #868fa366;
+  --bg-colour: #000922;
+  --bg-colour-trans: #00092299;
+  --input-bg-colour: #1e2842;
+  --light-blue-grey: #d0d0e0;
+  --mid-blue-grey: #a4a4c4;
 }
 
 @font-face {
@@ -29,7 +30,7 @@ html {
 
 body {
   box-sizing: border-box;
-  background: var(--background-colour);
+  background: var(--bg-colour);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -90,7 +91,7 @@ input {
 input.letters {
   font-family: var(--letters-font); 
   text-transform: none;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }
 
 input.colour {
@@ -109,26 +110,28 @@ input.colour {
 }
 
 .btn {
-  display: inline-block;
-  padding: 5px 7px;
+  /* display: inline-block; */
+  padding: 3px 7px;
+  line-height: 1;
   opacity: 1;
-  background: #555;
-  color: #fff;
+  background: var(--mid-blue-grey);
+  color: #000;
   text-decoration: none;
   cursor: pointer;
   border: none;
-  font-size: 1.25rem;
+  border-radius: 3px;
+  font-size: 1.125rem;
   font-weight: 700;
   transition: all 0.25 ease;
 }
 
 .btn:hover {
-  background: #ccc;
-  color: #000;
+  background: var(--light-blue-grey);
   transition: all 0.25 ease;
 }
 
-.btn:disabled {
+.btn.disabled,
+a.disabled {
   opacity: 0.5;
   pointer-events: none;
   transition: all 0.25 ease;
@@ -139,8 +142,8 @@ input.colour {
 }
 
 a.link, a.link:visited {
-  color: #fff;
-  font-size: 1.25rem;
+  color: var(--light-blue-grey);
+  font-size: 1.125rem;
   font-weight: 700;
 }
 
@@ -164,7 +167,7 @@ a.link:hover {
 
 .snowflake > span {
   font-weight: normal;
-  font-size: calc((1vmin / 5) * var(--size));
+  font-size: calc((1vmax / 5) * var(--size));
   color: var(--colour);
 }
 
@@ -177,55 +180,6 @@ a.link:hover {
   }
 }
 
-.tooltip {
-  position: fixed;
-  width: 40vmax;
-  top: calc(vh / 2);
-  left: calc(vw / 2);
-  min-width: 20px;
-  min-height: 20px;
-  padding: 2vmax;
-  background: var(--background-colour);
-  color: #fff;
-  font-family: 'Cormorant', serif;
-  font-size: 4vmax;
-  text-align: center;
-  pointer-events: none;
-  opacity: 0;
-  transform: scale(0.7);
-  transition: all 0.25s ease;
-}
-
-.tooltip.active {
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.25s ease;
-  border: 1px dashed #ffffffcc;
-	box-shadow: 0 0 0 2.5px #00092299, 0 0 0 5px var(--quote-border-colour), 0 0 0 10px #66666633, 0 0 2.5px 10px var(--quote-border-colour);
-  background: #00092299;
-}
-
-.quote {
-  font-style: italic;
-  font-weight: 600;
-}
-
-.quote::before,
-.quote::after {
-  transform: scale(1.75) !important;
-  display: inline-block;
-  color: var(--quote-mark-colour);
-}
-
-.quote::before {
-  content: '\201C';
-  margin-right: calc(1vmax * 1.5);
-}
-
-.quote::after {
-  content: '\201D';
-  margin: 0 calc(1vmax / 2);
-}
 
 /* @font-face {
   font-family: 'Wingdings';
