@@ -51,6 +51,24 @@ const renderSnow = ({req, res}) => {
   });
 }
 
+app.get('/shorten', (req, res) => {
+  const longUrl = decodeURI(req.query.longurl);
+  console.log(longUrl);
+  getTinyURL(longUrl).then(result => {
+    console.log(result);
+    res.send(result);
+  });
+});
+
+const getTinyURL = (url) => {
+  return new Promise((resolve, reject) => {
+    return tinyURL.shorten(url, (res, err) => {
+      if (err) reject(err);
+      resolve(res);
+    });
+  });
+}
+
 app.listen(() => {
   console.log('Listening on port', port);
 });

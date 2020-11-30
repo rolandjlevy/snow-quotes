@@ -11,7 +11,7 @@ $$('.snowflake').forEach(item => {
   item.addEventListener('mouseenter', (e) => {
     if (!tooltipOn) {
       const pos = Number(e.target.id) || parseInt(e.target.id);
-      const author = !!quotes[pos].author ? ` ${quotes[pos].author}` : '';
+      const author = quotes[pos] && !!quotes[pos].author ? ` ${quotes[pos].author}` : '';
       const quote = `<span class="quote">${quotes[pos].text}</span>${author}`;
       // console.log(e.target.id, pos, author)
       $('.tooltip').innerHTML = quote;
@@ -27,6 +27,19 @@ $$('.snowflake').forEach(item => {
     e.currentTarget.style.animationPlayState = 'running';
     e.currentTarget.style.opacity = getVar(e.currentTarget, '--opacity');
   });
+  item.addEventListener('click', (e) => {
+    $('.toast-message').classList.add('play');
+    const id = Number(e.target.id);
+    const { text, author } = quotes[id];
+    $('input.hidden.quote-text').value = `"${text}" by ${author}`;
+    $('input.hidden.quote-text').select();
+    document.execCommand('copy');
+  });
+});
+
+$('.toast-message').addEventListener('animationend', (e) => {
+  $('.toast-message').classList.remove('play');
+  console.log('animationend > snow');
 });
 
 const fetchQuotes = () => {

@@ -1,4 +1,6 @@
 - const initialInput = 'zxcvb';
+- const initialColour = '#d0d0e0';
+- const maxAmount = 200;
 
 doctype html
 html(xmlns="http://www.w3.org/1999/xhtml")
@@ -12,7 +14,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
         label(
           for="letters"
           class="m-b-10"
-        ) Type numbers [0-9] or letters [a-z]
+        ) Type letters [a-z] or numbers [0-9]
         input(
           type="text"
           class="letters m-b-20"
@@ -28,7 +30,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             label(
               for="quantity"
               class="m-b-10"
-            ) Quantity
+            ) Amount [1-200]
             input(
               type="number"
               class="quantity"
@@ -36,7 +38,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
               id="quantity"
               value="100"
               min="1"
-              max="250"
+              max=`${maxAmount}`
               autocomplete="off"
               placeholder=""
               required
@@ -51,7 +53,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
               class="colour m-b-20"
               name="colour"
               id="colour"
-              value="#d0d0e0"
+              value=`${initialColour}`
               style="display:block;"
             )
         .fieldset.m-b-20
@@ -59,20 +61,24 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             a(
               type="button"
               class="btn start"
-            ) Start the snow!
+            ) 
+              span Begin Snow 
+              span(
+                class="snowflake-icon"
+              ) ❄️
           section.m-l-5
             input(
               type="text"
-              class="hidden"
+              class="hidden url"
             )
             a(
               type="button"
               class="btn copy"
-              href="#"
             ) 
-              span.m-r-5 Copy link
+              span.m-r-5 Copy Link
               i(class="fas fa-copy")
-          
+
+      .toast-message Copied!
       
     script
       include ../public/index.js

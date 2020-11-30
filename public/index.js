@@ -2,7 +2,8 @@ const $ = selector => document.querySelector(selector);
 const $$ = selector => document.querySelectorAll(selector);
 
 const isTag = (str) => /<[^>]*>/g.test(str);
-const inFontSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
+const withinFontFaceSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
+const maxSnowflakes = 200;
 
 $('input.letters').addEventListener('input', (e) => {
   const input = e.target.value;
@@ -10,7 +11,7 @@ $('input.letters').addEventListener('input', (e) => {
     e.target.value = '⚠️';
     return;
   }
-  if (!inFontSet(input)) {
+  if (!withinFontFaceSet(input)) {
     const str = $('input.letters').value.slice(0,-1);
     e.target.value = str;
     return;
@@ -18,7 +19,7 @@ $('input.letters').addEventListener('input', (e) => {
 });
 
 $('input.quantity').addEventListener('input', (e) => {
-  if (e.target.value > 250) e.target.value = 250;
+  if (e.target.value > maxSnowflakes) e.target.value = maxSnowflakes;
   if (e.target.value < 1) e.target.value = '';
 });
 
@@ -39,7 +40,7 @@ const validate = () => {
     $('.btn.start').classList.remove('disabled');
     $('.btn.copy').classList.remove('disabled');
     $('.btn.start').href = getLink();
-    $('input.hidden').value = location.href.slice(0, -1) + getLink();
+    $('input.hidden.url').value = location.origin + getLink();
   }
 }
 
@@ -50,18 +51,53 @@ const getLink = () => {
   return `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}`;
 }
 
+const getLinkEncoded = () => {
+  const letters = $('input.letters').value;
+  const quantity = $('input.quantity').value;
+  const colour = $('input.colour').value;
+  const str = location.href + `snow?letters=${letters}&quantity=${quantity}&colour=${colour}`;
+  return str;
+}
+
 $('input.letters').addEventListener('focus', (e) => {
   const input = e.target.value;
   e.target.value= '';
   e.target.value = input; 
 });
 
-document.querySelector('.btn.copy').addEventListener('click', (e) => {
-  const copyText = document.querySelector('input.hidden');
-  copyText.select();
+$('.btn.copy').addEventListener('click', (e) => {
+  // const longUrl = location.href + '/shorten?longurl=' + getLinkEncoded();
+  // getLink or  getLinkEncoded ?
+  // console.log({longUrl});
+  // $('input.hidden.url').value = longUrl;
+  // getTinyUrl(longUrl)
+  // .then(result => {
+  //   console.log({result});
+  // });
+  // const trimmed = result.split('https://')[1];
+  $('.toast-message').classList.add('play');
+  $('input.hidden.url').select();
   document.execCommand('copy');
 });
 
+$('.toast-message').addEventListener('animationend', (e) => {
+  $('.toast-message').classList.remove('play');
+  console.log('animationend > index');
+});
+
+function getTinyUrl(longUrl) {
+  return new Promise((resolve, reject) => {
+    return fetch(longUrl)
+    .then(res => res.text())
+    .then(data => {
+      resolve(data);
+    })
+    .catch(err => {
+      reject(err);
+    });
+  });
+}
+
 $('input.letters').focus();
 $('.btn.start').href = getLink();
-$('input.hidden').value = location.href.slice(0, -1) + getLink();
+$('input.hidden.url').value = location.origin + getLink();
