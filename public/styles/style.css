@@ -1,5 +1,3 @@
-
-
 * {
   box-sizing: border-box;
 }
@@ -10,7 +8,7 @@ html {
   color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-family-sans-serif);
 }
 
 body {
@@ -25,21 +23,45 @@ body {
   overflow: hidden;
 }
 
-@font-face {
-  font-family: 'Mandalas';
-  src:  url("../fonts/Mandalas-Xm7g.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
-
 h1 {
-  font-family: 'Cormorant', serif;
-  font-size: 2.5rem;
+  font-family: var(--font-family-serif);
+  font-size: 3.4rem;
 }
 
 main.wrapper {
   width: 75vw;
-  max-width: 360px;
+  max-width: 480px;
+}
+
+.toast-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: calc(1vmax) calc(1vmax * 2);
+  color: #000;
+  opacity: 0;
+  font-size: clamp(1.25rem, 2vmax, 1.75rem);
+  width: auto;
+  font-weight: normal;
+  background: var(--light-blue-grey);
+  transform: scale(0.5);
+  animation: copied 3s ease-in-out 0s 1 forwards paused;
+  animation-play-state: unset;
+}
+
+.toast-message.none {
+  animation: none;
+}
+
+@keyframes copied {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(5vmax);
+  }
+  10%, 90% {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
 }
 
 .m-r-5 {
@@ -58,15 +80,8 @@ main.wrapper {
   margin-bottom: 20px;
 }
 
-.display {
-  font-family: monospace;
-  font-size: 1.25rem;
-  margin-top: 10px;
-  background: #333;
-  color: #fff;
-  padding: 5px 10px;
-  height: 20px;
-  text-transform: none;
+.m-b-30 {
+  margin-bottom: 30px;
 }
 
 .btn {
@@ -109,74 +124,4 @@ a.link, a.link:visited {
 
 a.link:hover {
   text-decoration: none;
-}
-
-.toast-message {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: auto;
-  padding: calc(1vmax * 0.5) calc(1vmax);
-  color: #000;
-  opacity: 0;
-  font-size: clamp(1.125rem, 2vmax, 2rem); 
-  font-weight: bold;
-  background: var(--light-blue-grey);
-  transform: scale(0.5);
-  animation: copied 2.5s ease-in-out 0s 1 forwards paused;
-  animation-play-state: unset;
-}
-
-.toast-message.none {
-  animation: none;
-}
-
-@keyframes copied {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  10%, 90% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.snowflake {
-  font-family: var(--letters-font); 
-  margin: 0;
-  position: absolute;
-  border-radius: 50%;
-  top: calc(var(--y, 50) * 1%);
-  /* top: 50%; */
-  left: calc(var(--x, 50) * 1%);
-  opacity: var(--opacity);
-  transform: translate(-50%, -50%) scale(1);
-  animation: float calc(var(--duration, 1) * 1s) calc(var(--delay, 0) * -1s) infinite linear both;
-  transition: all 0.25s ease;
-  cursor: pointer;
-}
-
-.snowflake > span {
-  font-weight: normal;
-  font-size: calc((1vmax / 5) * var(--size));
-  color: var(--colour);
-}
-
-.snowflake-icon {
-  font-weight: bold;
-  font-size: 1.25rem;
-  position: relative;
-  top: 2px;
-  left: 0;
-  filter: saturate(2) invert(1) grayscale(1) contrast(2);
-}
-
-@keyframes float {
-  from {
-    transform: translate(-50%, -50%) translate(0, -100vh) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) translate(0, 100vh) rotate(calc(360deg * var(--dir)));
-  }
 }

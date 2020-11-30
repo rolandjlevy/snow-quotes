@@ -1,22 +1,27 @@
-const $ = selector => document.querySelector(selector);
-const $$ = selector => document.querySelectorAll(selector);
-const animationEvent =  'onanimationend' in document.documentElement ? 'animationend' : 'webkitAnimationEnd';
+
 
 const isTag = (str) => /<[^>]*>/g.test(str);
 const withinFontFaceSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
 const maxSnowflakes = 200;
 
+$$('input').forEach(item => {
+  item.addEventListener('input', (e) => validate());
+});
+
 $('input.letters').addEventListener('input', (e) => {
   const input = e.target.value;
+  $('input.display').value = input;
   if (isTag(input)) {
     e.target.value = '⚠️';
     return;
   }
   if (!withinFontFaceSet(input)) {
     const str = $('input.letters').value.slice(0,-1);
+    $('input.display').value = str;
     e.target.value = str;
     return;
   }
+  console.log({input});
 });
 
 $('input.quantity').addEventListener('input', (e) => {
@@ -24,25 +29,19 @@ $('input.quantity').addEventListener('input', (e) => {
   if (e.target.value < 1) e.target.value = '';
 });
 
-$$('input').forEach(item => {
-  item.addEventListener('input', (e) => validate());
-});
-
 const validate = () => {
-  const validForm = {
-    letters: $('input.letters').value || null,
-    quantity: $('input.quantity').value || null
-  }
-  const valid = Object.values(validForm).filter(n => n);
-  if (valid.length < 2) {
+  let errors = 0;
+  errors += $('input.letters').value ? 0 : 1;
+  errors += $('input.quantity').value ? 0 : 1;
+  if (errors > 0) {
     $('.btn.start').classList.add('disabled');
     $('.btn.copy').classList.add('disabled');
-  } else {
-    $('.btn.start').classList.remove('disabled');
-    $('.btn.copy').classList.remove('disabled');
-    $('.btn.start').href = getLink();
-    $('input.hidden.url').value = location.origin + getLink();
+    return;
   }
+  $('.btn.start').classList.remove('disabled');
+  $('.btn.copy').classList.remove('disabled');
+  $('.btn.start').href = getLink();
+  $('input.hidden.url').value = location.origin + getLink();
 }
 
 $('.btn.copy').addEventListener('click', (e) => {

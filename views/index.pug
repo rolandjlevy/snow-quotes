@@ -1,4 +1,4 @@
-- const initialInput = 'zxcvb';
+- const initialInput = 'Example123';
 - const initialColour = '#d0d0e0';
 - const maxAmount = 200;
 
@@ -14,28 +14,36 @@ html(xmlns="http://www.w3.org/1999/xhtml")
         label(
           for="letters"
           class="m-b-10"
-        ) Type letters [a-z] or numbers [0-9]
+        ) Enter any letter or number for symbols
         input(
           type="text"
-          class="letters m-b-20"
+          class="letters m-b-10"
           name="letters"
-          id="letters"
           value=`${initialInput}`
           autocomplete="off"
           placeholder=""
           required
+        )
+        input(
+          type="text"
+          class="display m-b-30"
+          name="display"
+          value=`${initialInput}`
+          autocomplete="off"
+          placeholder=""
+          tabindex="-1"
+          readonly
         )
         .fieldset.m-b-20
           section.m-r-5
             label(
               for="quantity"
               class="m-b-10"
-            ) Amount [1-200]
+            ) Enter a number: 1-200
             input(
               type="number"
               class="quantity"
               name="quantity"
-              id="quantity"
               value="100"
               min="1"
               max=`${maxAmount}`
@@ -47,12 +55,11 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             label(
               for="colour"
               class="m-b-10"
-            ) Colour
+            ) Select a colour
             input(
               type="color" 
-              class="colour m-b-20"
+              class="colour m-b-30"
               name="colour"
-              id="colour"
               value=`${initialColour}`
               style="display:block;"
             )
@@ -79,8 +86,11 @@ html(xmlns="http://www.w3.org/1999/xhtml")
               i(class="fas fa-copy")
 
       .toast-message.none 
-        span.m-r-5 Copied
-        i(class="fas fa-check")
+        span.m-r-5 Settings copied to clipboard for sharing 
+          i(class="fas fa-check")
       
     script
-      include ../public/index.js
+      include ../public/scripts/utils.js
+      
+    script
+      include ../public/scripts/index.js

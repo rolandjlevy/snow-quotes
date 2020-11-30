@@ -29,11 +29,14 @@ html(xmlns="http://www.w3.org/1999/xhtml")
     )
     
     .toast-message.none 
-      span.m-r-5 Copied
+      span.m-r-5 Quote copied to clipboard
       i(class="fas fa-check")
 
     script.
       const quotesApiUrl = !{JSON.stringify(baseUrl)};
 
     script
-      include ../public/snow.js
+      include ../public/scripts/utils.js
+      
+    script
+      include ../public/scripts/snow.js

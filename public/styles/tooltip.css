@@ -5,7 +5,7 @@
   left: calc(vw / 2);
   padding: 2vmax;
   background: var(--bg-colour-trans);
-  font-family: 'Cormorant', serif;
+  font-family: var(--font-family-serif);
   font-size: 4vmax;
   text-align: center;
   pointer-events: none;

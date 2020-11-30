@@ -7,7 +7,7 @@ const tinyURL = require('tinyurl');
 const port = process.env.PORT || 3000;
 const baseUrl = process.env.API_URL;
 
-const Colours = require('./Colours');
+const Colours = require('./src/Colours');
 const colours = new Colours();
 
 app.use((req, res, next) => {
@@ -53,7 +53,6 @@ const renderSnow = ({req, res}) => {
 
 app.get('/shorten', (req, res) => {
   const longUrl = decodeURI(req.query.longurl);
-  console.log(longUrl);
   getTinyURL(longUrl).then(result => {
     console.log(result);
     res.send(result);

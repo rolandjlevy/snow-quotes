@@ -1,9 +1,11 @@
 :root {
-  --letters-font: 'Mandalas';
+  --font-family-symbols: 'Mandalas', 'Wingdings';
+  --font-family-serif: 'Cormorant', serif;
+  --font-family-sans-serif: 'Open Sans', sans-serif;
   --bg-colour: #000922;
   --bg-colour-trans: #00092299;
   --input-bg-colour: #1e2842;
-  --light-blue-grey: #d0d0e0;
+  --light-blue-grey: #e1e1ee;
   --mid-blue-grey: #a4a4c4;
   --quote-left: '\201C';
   --quote-right: '\201D';
@@ -11,4 +13,22 @@
   --quote-border-colour: #868fa366;
   --b: calc(1vmax);
 }
+
+@font-face {
+  font-family: 'Mandalas';
+  src:  url("../fonts/Mandalas-Xm7g.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Wingdings';
+  src:  local("Wingdings"),
+        local("Webdings"),
+        local("Zapf Dingbats"),
+        local("Dingbats"),
+        url("../fonts/wingding.woff") format("woff"),
+        url("../fonts/wingding.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
 }

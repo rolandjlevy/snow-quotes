@@ -1,7 +1,3 @@
-const $ = selector => document.querySelector(selector);
-const $$ = selector => document.querySelectorAll(selector);
-const animationEvent =  'onanimationend' in document.documentElement ? 'animationend' : 'webkitAnimationEnd';
-
 const shuffle = arr => arr.sort(() => Math.random() - 0.5);
 const getVar = (elem, varName) => getComputedStyle(elem).getPropertyValue(varName).trim();
 const setVar = (elem, varName, value) => elem.style.setProperty(varName, value);
@@ -27,8 +23,8 @@ $$('.snowflake').forEach(item => {
     e.currentTarget.style.animationPlayState = 'running';
     e.currentTarget.style.opacity = getVar(e.currentTarget, '--opacity');
   });
-
   item.addEventListener('click', (e) => {
+    if (mobileView) return;
     const id = Number(e.target.id);
     const { text, author } = quotes[id];
     $('.toast-message').style.animationPlayState = 'running';
