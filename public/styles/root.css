@@ -1,0 +1,14 @@
+:root {
+  --letters-font: 'Mandalas';
+  --bg-colour: #000922;
+  --bg-colour-trans: #00092299;
+  --input-bg-colour: #1e2842;
+  --light-blue-grey: #d0d0e0;
+  --mid-blue-grey: #a4a4c4;
+  --quote-left: '\201C';
+  --quote-right: '\201D';
+  --quote-mark-colour: #868fa3;
+  --quote-border-colour: #868fa366;
+  --b: calc(1vmax);
+}
+}

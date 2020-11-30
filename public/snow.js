@@ -1,9 +1,10 @@
 const $ = selector => document.querySelector(selector);
 const $$ = selector => document.querySelectorAll(selector);
+const animationEvent =  'onanimationend' in document.documentElement ? 'animationend' : 'webkitAnimationEnd';
 
 const shuffle = arr => arr.sort(() => Math.random() - 0.5);
 const getVar = (elem, varName) => getComputedStyle(elem).getPropertyValue(varName).trim();
-const setVar = (elem, varNaquotesApiUrlme, value) => elem.style.setProperty(varName, value);
+const setVar = (elem, varName, value) => elem.style.setProperty(varName, value);
 
 let tooltipOn = false;
 
@@ -13,7 +14,6 @@ $$('.snowflake').forEach(item => {
       const pos = Number(e.target.id) || parseInt(e.target.id);
       const author = quotes[pos] && !!quotes[pos].author ? ` ${quotes[pos].author}` : '';
       const quote = `<span class="quote">${quotes[pos].text}</span>${author}`;
-      // console.log(e.target.id, pos, author)
       $('.tooltip').innerHTML = quote;
       $('.tooltip').classList.add('active');
       tooltipOn = true;
@@ -27,19 +27,20 @@ $$('.snowflake').forEach(item => {
     e.currentTarget.style.animationPlayState = 'running';
     e.currentTarget.style.opacity = getVar(e.currentTarget, '--opacity');
   });
+
   item.addEventListener('click', (e) => {
-    $('.toast-message').classList.add('play');
     const id = Number(e.target.id);
     const { text, author } = quotes[id];
+    $('.toast-message').style.animationPlayState = 'running';
+    $('.toast-message').classList.remove('none');
     $('input.hidden.quote-text').value = `"${text}" by ${author}`;
     $('input.hidden.quote-text').select();
     document.execCommand('copy');
   });
 });
 
-$('.toast-message').addEventListener('animationend', (e) => {
-  $('.toast-message').classList.remove('play');
-  console.log('animationend > snow');
+$('.toast-message').addEventListener(animationEvent, (e) => {
+  e.currentTarget.classList.add('none');
 });
 
 const fetchQuotes = () => {

@@ -1,5 +1,6 @@
 const $ = selector => document.querySelector(selector);
 const $$ = selector => document.querySelectorAll(selector);
+const animationEvent =  'onanimationend' in document.documentElement ? 'animationend' : 'webkitAnimationEnd';
 
 const isTag = (str) => /<[^>]*>/g.test(str);
 const withinFontFaceSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
@@ -44,6 +45,17 @@ const validate = () => {
   }
 }
 
+$('.btn.copy').addEventListener('click', (e) => {
+  $('.toast-message').style.animationPlayState = 'running';
+  $('.toast-message').classList.remove('none');
+  $('input.hidden.url').select();
+  document.execCommand('copy');
+});
+
+$('.toast-message').addEventListener(animationEvent, (e) => {
+  e.currentTarget.classList.add('none');
+});
+
 const getLink = () => {
   const letters = encodeURIComponent($('input.letters').value);
   const quantity = encodeURIComponent($('input.quantity').value);
@@ -65,26 +77,6 @@ $('input.letters').addEventListener('focus', (e) => {
   e.target.value = input; 
 });
 
-$('.btn.copy').addEventListener('click', (e) => {
-  // const longUrl = location.href + '/shorten?longurl=' + getLinkEncoded();
-  // getLink or  getLinkEncoded ?
-  // console.log({longUrl});
-  // $('input.hidden.url').value = longUrl;
-  // getTinyUrl(longUrl)
-  // .then(result => {
-  //   console.log({result});
-  // });
-  // const trimmed = result.split('https://')[1];
-  $('.toast-message').classList.add('play');
-  $('input.hidden.url').select();
-  document.execCommand('copy');
-});
-
-$('.toast-message').addEventListener('animationend', (e) => {
-  $('.toast-message').classList.remove('play');
-  console.log('animationend > index');
-});
-
 function getTinyUrl(longUrl) {
   return new Promise((resolve, reject) => {
     return fetch(longUrl)
@@ -101,3 +93,13 @@ function getTinyUrl(longUrl) {
 $('input.letters').focus();
 $('.btn.start').href = getLink();
 $('input.hidden.url').value = location.origin + getLink();
+
+// const longUrl = location.href + '/shorten?longurl=' + getLinkEncoded();
+// getLink or  getLinkEncoded ?
+// console.log({longUrl});
+// $('input.hidden.url').value = longUrl;
+// getTinyUrl(longUrl)
+// .then(result => {
+//   console.log({result});
+// });
+// const trimmed = result.split('https://')[1];

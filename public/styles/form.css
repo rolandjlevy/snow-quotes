@@ -1,0 +1,39 @@
+
+.fieldset {
+  display: flex;
+}
+
+.fieldset > section {
+  width: 50%
+}
+
+label {
+  display: inline-block;
+}
+
+input {
+  padding: 7px;
+  margin: 0;
+  width: 100%;
+  height: 30px;
+  font-size: 1.25rem;
+  border: none;
+  outline: none;
+  background-color: var(--input-bg-colour);
+  color: #fff;
+}
+
+input.letters {
+  font-family: var(--letters-font); 
+  text-transform: none;
+  font-size: 1.25rem;
+}
+
+input.colour {
+  padding: 3px;
+}
+
+input.hidden {
+  position: absolute; 
+  left: -99999px;
+}

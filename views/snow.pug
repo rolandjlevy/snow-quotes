@@ -28,7 +28,9 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       class="hidden quote-text"
     )
     
-    .toast-message Copied!
+    .toast-message.none 
+      span.m-r-5 Copied
+      i(class="fas fa-check")
 
     script.
       const quotesApiUrl = !{JSON.stringify(baseUrl)};
