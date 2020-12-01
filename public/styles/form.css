@@ -4,7 +4,7 @@
   flex-direction: row;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 480px)  {
   .fieldset {
     flex-direction: column;
   }
@@ -47,10 +47,6 @@ input.letters {
   font-size: 1.25rem;
 }
 
-input.colour {
-  /* padding: 3px; */
-}
-
 input.hidden {
   position: absolute; 
   left: -99999px;
@@ -65,7 +61,8 @@ input.hidden {
   white-space: nowrap;
   cursor: pointer;
   border-radius: 3px;
-  font-size: 1.125rem;
+  font-size: 0.875rem;
+  font-weight: 700;
   opacity: 1;
   color: #fff;
   border: 1px solid var(--dark-blue-grey);
@@ -99,4 +96,8 @@ a.disabled {
 
 .btn.start {
   width: 100%;
+}
+
+.width-33 {
+  width: calc(33.3% - 20px / 3);
 }

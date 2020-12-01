@@ -30,15 +30,17 @@ h1 {
   line-height: 1;
 }
 
-@media only screen and (max-width: 400px) {
-  h1 {
-    text-align: center;
-  }
-}
-
 main.wrapper {
   width: 75vw;
   max-width: 640px;
+}
+
+.section-m-r-5 {
+  margin-right: 5px;
+}
+
+.section-m-l-5 {
+  margin-left: 5px;
 }
 
 .toast-message {
@@ -104,4 +106,16 @@ a.link, a.link:visited {
 
 a.link:hover {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    text-align: center;
+  }
+  .section-m-r-5 {
+    margin-right: 0;
+  }
+  .section-m-l-5 {
+    margin-left: 0;
+  }
 }
