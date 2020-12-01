@@ -96,3 +96,7 @@ a.disabled {
   position: relative;
   bottom: 1px;
 }
+
+.btn.start {
+  width: 100%;
+}
