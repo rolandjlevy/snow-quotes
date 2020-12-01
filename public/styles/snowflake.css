@@ -12,19 +12,15 @@
   cursor: pointer;
 }
 
+.snowflake.abc {
+  font-family: var(--font-family-serif);
+  font-weight: bold;
+}
+
 .snowflake > span {
   font-weight: normal;
   font-size: calc((1vmax / 5) * var(--size));
   color: var(--colour);
-}
-
-.snowflake-icon {
-  font-weight: bold;
-  font-size: 1.25rem;
-  position: relative;
-  top: 2px;
-  left: 0;
-  filter: saturate(2) invert(1) grayscale(1) contrast(2);
 }
 
 @keyframes float {

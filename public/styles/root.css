@@ -7,28 +7,11 @@
   --input-bg-colour: #1e2842;
   --light-blue-grey: #e1e1ee;
   --mid-blue-grey: #a4a4c4;
+  --dark-blue-grey: #767696;
   --quote-left: '\201C';
   --quote-right: '\201D';
   --quote-mark-colour: #868fa3;
   --quote-border-colour: #868fa366;
+  --mobile-max-width: 400px;
   --b: calc(1vmax);
-}
-
-@font-face {
-  font-family: 'Mandalas';
-  src:  url("../fonts/Mandalas-Xm7g.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Wingdings';
-  src:  local("Wingdings"),
-        local("Webdings"),
-        local("Zapf Dingbats"),
-        local("Dingbats"),
-        url("../fonts/wingding.woff") format("woff"),
-        url("../fonts/wingding.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
 }

@@ -26,11 +26,19 @@ body {
 h1 {
   font-family: var(--font-family-serif);
   font-size: 3.4rem;
+  margin: 0 0 40px 0;
+  line-height: 1;
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    text-align: center;
+  }
 }
 
 main.wrapper {
   width: 75vw;
-  max-width: 480px;
+  max-width: 640px;
 }
 
 .toast-message {
@@ -68,6 +76,10 @@ main.wrapper {
   margin-right: 5px;
 }
 
+.m-r-10 {
+  margin-right: 10px;
+}
+
 .m-l-5 {
   margin-left: 5px;
 }
@@ -82,38 +94,6 @@ main.wrapper {
 
 .m-b-30 {
   margin-bottom: 30px;
-}
-
-.btn {
-  padding: 3px 7px;
-  line-height: 1;
-  opacity: 1;
-  background: var(--mid-blue-grey);
-  color: #000;
-  text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer;
-  border: none;
-  border-radius: 3px;
-  font-size: 1.125rem;
-  font-weight: 700;
-  transition: all 0.25 ease;
-}
-
-.btn:hover {
-  background: var(--light-blue-grey);
-  transition: all 0.25 ease;
-}
-
-.btn.disabled,
-a.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-  transition: all 0.25 ease;
-}
-
-.btn > i {
-  font-size: 1rem;
 }
 
 a.link, a.link:visited {

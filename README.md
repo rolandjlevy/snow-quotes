@@ -3,20 +3,19 @@
 Choose various symbols, a colour and amount to fill the night sky with gently falling snowflakes. Each one reveals an inspirational quote when you hover over it 💬
 
 ### Links 🔗
-- [See the demo](https://js-balloon-popping-game.rolandjlevy.repl.co/)
+- [See the demo](https://express-snow-quotes.rolandjlevy.repl.co/)
 - [View the source code](https://repl.it/@RolandJLevy/express-snow-quotes)
 - [Explore the Github repo](https://github.com/rolandjlevy/express-snow-quotes)
 
 ### Features 💡
 - Customise your **Snow Quotes** with various letters and numbers, select the amount and colour you want
-- Either click on the 'Begin Snow' button or copy the link to your clipboard so you can share
+- Either click on the 'Begin Snow' button or copy the link to your clipboard so you can share the settings
 - Hover your mouse over each snowflake to reveal an inspirational quote
-- Click the snowflake copy the quote to your clipboard 
-- The settings can be copied as a link for sharing
+- Click on a snowflake to copy the quote to your clipboard 
 
 ### How it works ⚙️
 - Built from scratch with Node, Express and pug template engine on the back end
-- The front end doesn't use any frameworks or libraries like React or Vue
+- The front end uses vanilla JavaScript - no frameworks or libraries like React or Vue
 - Completely responsive and mobile friendly
 - Inspired by a Pug and CSS Workshop video by one of my favourite developers 👉 [@Jhey](https://twitter.com/jh3yy)
 - The quotes are from an API shown in this [freecodecamp.org article](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373)

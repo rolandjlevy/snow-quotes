@@ -5,6 +5,7 @@ const setVar = (elem, varName, value) => elem.style.setProperty(varName, value);
 let tooltipOn = false;
 
 $$('.snowflake').forEach(item => {
+  // Show quote
   item.addEventListener('mouseenter', (e) => {
     if (!tooltipOn) {
       const pos = Number(e.target.id) || parseInt(e.target.id);
@@ -17,12 +18,14 @@ $$('.snowflake').forEach(item => {
       e.currentTarget.style.opacity = 1;
     }
   });
+  // Hide quote
   item.addEventListener('mouseleave', (e) => {
     tooltipOn = false;
     $('.tooltip').classList.remove('active');
     e.currentTarget.style.animationPlayState = 'running';
     e.currentTarget.style.opacity = getVar(e.currentTarget, '--opacity');
   });
+  // Trigger toast message when clicking on a snowflake
   item.addEventListener('click', (e) => {
     if (mobileView) return;
     const id = Number(e.target.id);
@@ -33,12 +36,19 @@ $$('.snowflake').forEach(item => {
     $('input.hidden.quote-text').select();
     document.execCommand('copy');
   });
+  // Toggle font on keypress
+  $('body').addEventListener('keypress', (e) => {
+    const spaceKeyCode = 32;
+    if (e.keyCode == spaceKeyCode) item.classList.toggle('abc');
+  });
 });
 
+// Reset toast message for settings copied
 $('.toast-message').addEventListener(animationEvent, (e) => {
   e.currentTarget.classList.add('none');
 });
 
+// Fetching from quotes API
 const fetchQuotes = () => {
   return new Promise((resolve, reject) => {
     return fetch(quotesApiUrl)
@@ -50,6 +60,7 @@ const fetchQuotes = () => {
   });
 }
 
+// Filter out words in ignoreList
 const filteredQuotes = (arr) => {
   const ignoreList = ['trump', 'dalai'];
   const filtered = arr.reduce((acc, item) => {
@@ -62,6 +73,7 @@ const filteredQuotes = (arr) => {
   return shuffle(filtered);
 }
 
+// Fetch quotes from API
 let quotes;
 fetchQuotes().then(result => {
   quotes = result;

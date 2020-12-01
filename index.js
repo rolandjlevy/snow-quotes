@@ -3,9 +3,9 @@ const app = express();
 const path = require('path');
 const pug = require('pug');
 const dotenv = require('dotenv');
-const tinyURL = require('tinyurl');
 const port = process.env.PORT || 3000;
 const baseUrl = process.env.API_URL;
+const shortUrl = require('node-url-shortener');
 
 const Colours = require('./src/Colours');
 const colours = new Colours();
@@ -53,17 +53,17 @@ const renderSnow = ({req, res}) => {
 
 app.get('/shorten', (req, res) => {
   const longUrl = decodeURI(req.query.longurl);
-  getTinyURL(longUrl).then(result => {
-    console.log(result);
+  getShortUrl(longUrl).then(result => {
+    console.log({result})
     res.send(result);
   });
 });
 
-const getTinyURL = (url) => {
+const getShortUrl = (longUrl) => {
   return new Promise((resolve, reject) => {
-    return tinyURL.shorten(url, (res, err) => {
+    return shortUrl.short(longUrl, (err, url) => {
       if (err) reject(err);
-      resolve(res);
+      resolve(url);
     });
   });
 }

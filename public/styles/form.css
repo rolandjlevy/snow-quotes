@@ -1,21 +1,28 @@
 
 .fieldset {
   display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 400px) {
+  .fieldset {
+    flex-direction: column;
+  }
 }
 
 .fieldset > section {
-  width: 50%
+  width: 100%
 }
 
 label {
   display: inline-block;
 }
 
-input {
-  padding: 7px;
+input, .display-text {
+  padding: 6px 8px;
   margin: 0;
   width: 100%;
-  height: 30px;
+  height: 40px;
   font-size: 1.125rem;
   border: none;
   outline: none;
@@ -23,8 +30,16 @@ input {
   color: #fff;
 }
 
-input.display {
+input.display, .display-text {
   font-family: var(--font-family-symbols); 
+}
+
+input.display {
+  display: none;
+}
+
+.display-text {
+  background: none;
 }
 
 input.letters {
@@ -33,10 +48,51 @@ input.letters {
 }
 
 input.colour {
-  padding: 3px;
+  /* padding: 3px; */
 }
 
 input.hidden {
   position: absolute; 
   left: -99999px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 12px 6px 12px;
+  line-height: 1;
+  height: 40px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 1.125rem;
+  opacity: 1;
+  color: #fff;
+  border: 1px solid var(--dark-blue-grey);
+  background: var(--input-bg-colour);
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  color: #000;
+  background: var(--light-blue-grey);
+  transition: all 0.25s ease;
+}
+
+.btn.disabled,
+a.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: all 0.25 ease;
+}
+
+.btn > i {
+  font-size: 1rem;
+}
+
+.btn > .snowflake-icon {
+  font-size: 1.125rem;
+  font-family: var(--font-family-symbols);
+  position: relative;
+  bottom: 1px;
 }
