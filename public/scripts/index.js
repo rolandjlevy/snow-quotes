@@ -58,14 +58,28 @@ $('input.quantity').addEventListener('input', (e) => {
   if (e.target.value < 1) e.target.value = '';
 });
 
-// Set multicolour
+// Turn multicolour on
 $('.btn.multicolour').addEventListener('click', (e) => {
+  $('.colour-group.colour').classList.remove('active');
+  $('.colour-group.multicolour').classList.add('active');
+  // $('.btn.multicolour').classList.add('active');
+  // $('input.colour').classList.remove('active');
+  // $('.multicolour-label > i').classList.add('active');
+  // $('.colour-label > i').classList.remove('active');
   $('input[name=multicolour]').value = 1;
+  validate();
 });
 
-// Set multicolour
+// Turn colour on
 $('input.colour').addEventListener('click', (e) => {
+  $('.colour-group.colour').classList.add('active');
+  $('.colour-group.multicolour').classList.remove('active');
+  // $('.btn.multicolour').classList.remove('active');
+  // $('input.colour').classList.add('active');
+  // $('.multicolour-label > i').classList.remove('active');
+  // $('.colour-label > i').classList.add('active');
   $('input[name=multicolour]').value = 0;
+  validate();
 });
 
 // Run toast message for settings copied
@@ -87,7 +101,8 @@ const getQueryString = () => {
   const quantity = encodeURIComponent($('input.quantity').value);
   const colour = encodeURIComponent($('input.colour').value);
   const multicolour = encodeURIComponent($('input[name=multicolour]').value);
-  return `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`;
+  const query = `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`;
+  return query;
 }
 
 // Get fully encoded query string for share buttons

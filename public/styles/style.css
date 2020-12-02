@@ -6,6 +6,7 @@ html {
   touch-action: manipulation;
   user-select: none;
   color: #fff;
+  font-size: 0.875rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--font-family-sans-serif);

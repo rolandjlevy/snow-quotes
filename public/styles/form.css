@@ -148,6 +148,7 @@ input.colour {
   cursor: pointer;
   background-color: var(--input-bg-colour);
   transition: all 0.25s ease;
+  opacity: 0.5;
 }
 
 input.colour:hover {
@@ -162,10 +163,33 @@ input.colour:hover {
     linear-gradient(336deg, rgba(0,0,255,1), rgba(0,0,255,0) 60%);
   border: none;
   box-shadow: 0 0 0 10px var(--input-bg-colour) inset;
+  opacity: 0.5;
   transition: all 0.25s ease;
 }
 
 .btn.multicolour:hover {
   box-shadow: 0 0 0 10px var(--light-blue-grey) inset;
   transition: all 0.25s ease;
+}
+
+input.colour.active, .btn.multicolour.active,
+.colour-label.active, .multicolour-label.active,
+.colour-label > i.active, .multicolour-label > i.active {
+  opacity: 1;
+}
+
+.colour-label > i, .multicolour-label > i {
+  opacity: 0;
+}
+
+.colour-label, .multicolour-label {
+  opacity: 0.5;
+}
+
+.colour-group * {
+  opacity: 0.5;
+}
+
+.colour-group.active * {
+  opacity: 1;
 }

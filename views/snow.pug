@@ -19,7 +19,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       - const duration = randomNum(5, 30);
       - const delay = randomNum(0, duration);
       - n++;
-      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${colours.randomHexString()}` id=`${n}`) 
+      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${Number(multicolour) ? colours.randomHexString() : colour}` id=`${n}`) 
         span.inner #{randomItem(lettersArr).toUpperCase()}
 
     img(
