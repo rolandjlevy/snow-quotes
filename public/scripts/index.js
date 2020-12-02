@@ -13,15 +13,21 @@ const validate = () => {
   errors += $('input.letters').value ? 0 : 1;
   errors += $('input.quantity').value ? 0 : 1;
   if (errors > 0) {
-    $('.btn.start').classList.add('disabled');
-    $('.btn.copy').classList.add('disabled');
+    toggleButtons('add');
     return;
   }
-  $('.btn.start').classList.remove('disabled');
-  $('.btn.copy').classList.remove('disabled');
+  toggleButtons('remove');
   $('.btn.start').href = getQueryString();
   $('input.hidden.url').value = location.origin + getQueryString();
 }
+
+// Toggle disabled state of all buttons
+const toggleButtons = (action) => {
+  $$('.btn').forEach(item => {
+    item.classList[action]('disabled');
+  });
+}
+
 
 // Validate input for letters (a-z and 0-9)
 $('input.letters').addEventListener('input', (e) => {
@@ -100,11 +106,12 @@ $('input.letters').focus();
 $('.btn.start').href = getQueryString();
 $('input.hidden.url').value = location.origin + getQueryString();
 
-
 const sharing = {
+  whatsapp: 'https://wa.me/?text=',
   facebook: 'https://www.facebook.com/sharer/sharer.php?text=hello&u=',
-  twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,css&text=Check+out+Snow+Quotes+by+@rolandjlevy+-&url='
+  twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url='
 }
 
+$('.btn.whatsapp').href = sharing['whatsapp'] + getQueryStringEncoded();
 $('.btn.twitter').href = sharing['twitter'] + getQueryStringEncoded();
 $('.btn.facebook').href = sharing['facebook'] + getQueryStringEncoded();

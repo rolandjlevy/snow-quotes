@@ -3,7 +3,7 @@
   margin: 0;
   position: absolute;
   border-radius: 50%;
-  top: calc(var(--y, 50) * 1%);
+  top: 50%;
   left: calc(var(--x, 50) * 1%);
   opacity: var(--opacity);
   transform: translate(-50%, -50%) scale(1);
