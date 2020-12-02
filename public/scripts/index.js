@@ -62,10 +62,6 @@ $('input.quantity').addEventListener('input', (e) => {
 $('.btn.multicolour').addEventListener('click', (e) => {
   $('.colour-group.colour').classList.remove('active');
   $('.colour-group.multicolour').classList.add('active');
-  // $('.btn.multicolour').classList.add('active');
-  // $('input.colour').classList.remove('active');
-  // $('.multicolour-label > i').classList.add('active');
-  // $('.colour-label > i').classList.remove('active');
   $('input[name=multicolour]').value = 1;
   validate();
 });
@@ -74,10 +70,6 @@ $('.btn.multicolour').addEventListener('click', (e) => {
 $('input.colour').addEventListener('click', (e) => {
   $('.colour-group.colour').classList.add('active');
   $('.colour-group.multicolour').classList.remove('active');
-  // $('.btn.multicolour').classList.remove('active');
-  // $('input.colour').classList.add('active');
-  // $('.multicolour-label > i').classList.remove('active');
-  // $('.colour-label > i').classList.add('active');
   $('input[name=multicolour]').value = 0;
   validate();
 });
@@ -127,10 +119,6 @@ function getShortUrl(url) {
   });
 }
 
-// Initialise
-$('input.letters').focus();
-$('.btn.start').href = getQueryString();
-
 const sharing = {
   whatsapp: 'https://wa.me/?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-+',
   facebook: 'https://www.facebook.com/sharer/sharer.php?text=hello&u=',
@@ -145,3 +133,7 @@ getShortUrl(longUrl).then(url => {
   $('.btn.twitter').href = sharing['twitter'] + url;
   $('.btn.facebook').href = sharing['facebook'] + url;
 });
+
+// Initialise
+$('input.letters').focus();
+$('.btn.start').href = getQueryString();

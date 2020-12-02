@@ -52,6 +52,7 @@ input.letters {
   justify-content: center;
   padding: 8px 12px;
   line-height: 1;
+  letter-spacing: 1px;
   height: 40px;
   text-decoration: none;
   white-space: nowrap;
