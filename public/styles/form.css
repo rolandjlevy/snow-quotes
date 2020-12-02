@@ -111,10 +111,10 @@ label {
   white-space: nowrap;
 }
 
-.colour-group > input.colour-random {
+/* .colour-group > input.colour-random {
   font-size: 1rem;
   transform: scale(0.25);
-}
+} */
 
 .width-25 {
   width: calc(25% - 30px / 4);
@@ -172,7 +172,7 @@ input.colour:hover {
   transition: all 0.25s ease;
 }
 
-input.colour.active, .btn.multicolour.active,
+/* input.colour.active, .btn.multicolour.active,
 .colour-label.active, .multicolour-label.active,
 .colour-label > i.active, .multicolour-label > i.active {
   opacity: 1;
@@ -184,10 +184,18 @@ input.colour.active, .btn.multicolour.active,
 
 .colour-label, .multicolour-label {
   opacity: 0.5;
-}
+} */
 
 .colour-group * {
   opacity: 0.5;
+}
+
+.colour-group > label > i {
+  opacity: 0;
+  font-size: 0.875rem;
+  position: relative;
+  top: -1px;
+  left: 2px;
 }
 
 .colour-group.active * {
