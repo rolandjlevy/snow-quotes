@@ -46,11 +46,6 @@ input.letters {
   font-size: 1.25rem;
 }
 
-input.hidden {
-  position: absolute; 
-  left: -99999px;
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -87,7 +82,7 @@ a.disabled {
 .btn > i {
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.25rem;
   text-align: center;
 }
 
@@ -100,8 +95,19 @@ a.disabled {
   width: 100%;
 }
 
+.colour-row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .colour-group {
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+label {
   white-space: nowrap;
 }
 
@@ -118,6 +124,10 @@ a.disabled {
   width: calc(33.3% - 20px / 3);
 }
 
+.width-50 {
+  width: calc(50%);
+}
+
 .copy {
   color: #e67a00;
 }
@@ -132,4 +142,30 @@ a.disabled {
 
 .twitter {
   color: #00acee;
+}
+
+input.colour {
+  cursor: pointer;
+  background-color: var(--input-bg-colour);
+  transition: all 0.25s ease;
+}
+
+input.colour:hover {
+  background-color: var(--light-blue-grey);
+  transition: all 0.25s ease;
+}
+
+.btn.multicolour {
+  background: 
+    linear-gradient(217deg, rgba(255,0,0,1), rgba(255,0,0,0) 60%),
+    linear-gradient(127deg, rgba(0,255,0,1), rgba(0,255,0,0) 60%),
+    linear-gradient(336deg, rgba(0,0,255,1), rgba(0,0,255,0) 60%);
+  border: none;
+  box-shadow: 0 0 0 10px var(--input-bg-colour) inset;
+  transition: all 0.25s ease;
+}
+
+.btn.multicolour:hover {
+  box-shadow: 0 0 0 10px var(--light-blue-grey) inset;
+  transition: all 0.25s ease;
 }

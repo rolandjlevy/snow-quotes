@@ -41,11 +41,13 @@ app.post('/snow', (req, res) => {
 });
 
 const renderSnow = ({req, res}) => {
-  const { letters, quantity, colour } = res.locals.data;
+  const { letters, quantity, colour, multicolour } = res.locals.data;
+  console.log({ letters, quantity, colour, multicolour })
   res.render('snow.pug', {
     letters,
     quantity,
     colour,
+    multicolour,
     colours,
     baseUrl
   });
@@ -54,7 +56,6 @@ const renderSnow = ({req, res}) => {
 app.get('/shorten', (req, res) => {
   const longUrl = decodeURI(req.query.longurl);
   getShortUrl(longUrl).then(result => {
-    console.log({result})
     res.send(result);
   });
 });

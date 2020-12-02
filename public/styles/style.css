@@ -20,6 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -30,9 +31,22 @@ h1 {
   line-height: 1;
 }
 
-main.wrapper {
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: calc(100vh - 100px);
+}
+
+main.container {
   width: 75vw;
   max-width: 640px;
+}
+
+.hidden {
+  position: absolute; 
+  left: -99999px;
 }
 
 .section-m-r-5 {
@@ -51,37 +65,6 @@ main.wrapper {
   margin-left: 10px;
 }
 
-.toast-message {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: calc(1vmax) calc(1vmax * 2);
-  color: #000;
-  opacity: 0;
-  font-size: clamp(1.25rem, 2vmax, 1.75rem);
-  width: auto;
-  font-weight: normal;
-  background: #fff;
-  transform: scale(0.5);
-  animation: copied 3s ease-in-out 0s 1 forwards paused;
-  animation-play-state: unset;
-}
-
-.toast-message.none {
-  animation: none;
-}
-
-@keyframes copied {
-  0%, 100% {
-    opacity: 0;
-    transform: translateY(5vmax);
-  }
-  10%, 90% {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
-}
-
 .m-r-5 {
   margin-right: 5px;
 }
@@ -98,6 +81,10 @@ main.wrapper {
   margin-right: 10px;
 }
 
+.m-l-10 {
+  margin-left: 10px;
+}
+
 .m-b-10 {
   margin-bottom: 10px;
 }
@@ -110,6 +97,33 @@ main.wrapper {
   margin-bottom: 30px;
 }
 
+footer {
+  font-size: 0.875rem;
+  max-width: 640px;
+  color: var(--mid-blue-grey);
+  height: 50px;
+  margin: 0;
+}
+
+footer a {
+  color: var(--mid-blue-grey);
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--light-blue-grey);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
+}
+
 a.link, a.link:visited {
   color: var(--light-blue-grey);
   font-size: 1.125rem;
@@ -120,8 +134,12 @@ a.link:hover {
   text-decoration: none;
 }
 
+.text-center {
+  text-align: center;
+}
+
 @media only screen and (max-width: 480px) {
-  h1 {
+  h1, footer {
     text-align: center;
   }
   .section-m-r-5 {

@@ -3,6 +3,7 @@
 - const dir = [1, -1];
 - const lettersArr = letters.split('');
 - let n = 0;
+- const colourType = multicolour == "1" ? colours.randomHexString() : colour;
 
 doctype html
 html(xmlns="http://www.w3.org/1999/xhtml")
@@ -18,9 +19,14 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       - const duration = randomNum(5, 30);
       - const delay = randomNum(0, duration);
       - n++;
-      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${colour}` id=`${n}`)
+      div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${colourType}` id=`${n}`) 
         span.inner #{randomItem(lettersArr).toUpperCase()}
-    
+
+    img(
+      src="images/app-image.png"
+      class="hidden"
+    )
+
     .tooltip
 
     input(

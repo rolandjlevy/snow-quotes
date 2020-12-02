@@ -28,7 +28,6 @@ const toggleButtons = (action) => {
   });
 }
 
-
 // Validate input for letters (a-z and 0-9)
 $('input.letters').addEventListener('input', (e) => {
   const input = e.target.value;
@@ -58,6 +57,16 @@ $('input.quantity').addEventListener('input', (e) => {
   if (e.target.value < 1) e.target.value = '';
 });
 
+// Set multicolour
+$('.btn.multicolour').addEventListener('click', (e) => {
+  $('input[name=multicolour]').value = 1;
+});
+
+// Set multicolour
+$('input.colour').addEventListener('click', (e) => {
+  $('input[name=multicolour]').value = 0;
+});
+
 // Run toast message for settings copied
 $('.btn.copy').addEventListener('click', (e) => {
   $('.toast-message').style.animationPlayState = 'running';
@@ -76,7 +85,8 @@ const getQueryString = () => {
   const letters = encodeURIComponent($('input.letters').value);
   const quantity = encodeURIComponent($('input.quantity').value);
   const colour = encodeURIComponent($('input.colour').value);
-  return `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}`;
+  const multicolour = encodeURIComponent($('input[name=multicolour]').value);
+  return `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`;
 }
 
 // Get fully encoded query string for share buttons
@@ -84,7 +94,7 @@ const getQueryStringEncoded = () => {
   const letters = $('input.letters').value;
   const quantity = $('input.quantity').value;
   const colour = encodeURIComponent($('input.colour').value);
-  return encodeURIComponent(`${location.origin}/snow?letters=${letters}&quantity=${quantity}&colour=${colour}`);
+  return encodeURIComponent(`${location.origin}/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`);
 }
 
 // For url shortening
@@ -104,14 +114,18 @@ function getShortUrl(url) {
 // Initialise
 $('input.letters').focus();
 $('.btn.start').href = getQueryString();
-$('input.hidden.url').value = location.origin + getQueryString();
 
 const sharing = {
-  whatsapp: 'https://wa.me/?text=',
+  whatsapp: 'https://wa.me/?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-+',
   facebook: 'https://www.facebook.com/sharer/sharer.php?text=hello&u=',
   twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url='
 }
 
-$('.btn.whatsapp').href = sharing['whatsapp'] + getQueryStringEncoded();
-$('.btn.twitter').href = sharing['twitter'] + getQueryStringEncoded();
-$('.btn.facebook').href = sharing['facebook'] + getQueryStringEncoded();
+const longUrl = location.origin + '/shorten?longurl=' + location.origin;
+
+getShortUrl(longUrl).then(url => {
+  $('input.hidden.url').value = url;
+  $('.btn.whatsapp').href = sharing['whatsapp'] + url;
+  $('.btn.twitter').href = sharing['twitter'] + url;
+  $('.btn.facebook').href = sharing['facebook'] + url;
+});
