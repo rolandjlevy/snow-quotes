@@ -3,7 +3,7 @@
   flex-direction: row;
 }
 
-@media only screen and (max-width: 480px)  {
+@media only screen and (max-width: 535px)  {
   .fieldset {
     flex-direction: column;
   }
@@ -112,11 +112,6 @@ label {
   white-space: nowrap;
 }
 
-/* .colour-group > input.colour-random {
-  font-size: 1rem;
-  transform: scale(0.25);
-} */
-
 .width-25 {
   width: calc(25% - 30px / 4);
 }
@@ -172,20 +167,6 @@ input.colour:hover {
   box-shadow: 0 0 0 10px var(--light-blue-grey) inset;
   transition: all 0.25s ease;
 }
-
-/* input.colour.active, .btn.multicolour.active,
-.colour-label.active, .multicolour-label.active,
-.colour-label > i.active, .multicolour-label > i.active {
-  opacity: 1;
-}
-
-.colour-label > i, .multicolour-label > i {
-  opacity: 0;
-}
-
-.colour-label, .multicolour-label {
-  opacity: 0.5;
-} */
 
 .colour-group * {
   opacity: 0.5;

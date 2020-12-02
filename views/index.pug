@@ -15,10 +15,10 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 
         h1 Snow Quotes
         h2 Create a sky of snowflakes which reveal inspirational quotes
-        
+
         form(method="post" action="/snow")
 
-          label(for="letters", class="m-b-10") Any letters or numbers for symbols
+          label(for="letters", class="m-b-10") Enter letters or numbers for symbols
 
           input(
             type="text"
@@ -66,7 +66,8 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 
           .fieldset
             section.section-m-r-5.m-b-20
-              a(type="button", class="btn start") span START SNOW QUOTES&nbsp;
+              a(type="button", class="btn start")
+                span START SNOW QUOTES&nbsp;
                 span(class="snowflake-icon") I
 
             section.section-m-l-5.m-b-20
@@ -87,10 +88,11 @@ html(xmlns="http://www.w3.org/1999/xhtml")
         .toast-message.none 
           span.m-r-5 Copied to clipboard for sharing&nbsp;
             i(class="fas fa-check")
-
-    footer
-      p.text-center &copy; Roland Levy 2020 
-        a(href="https://rolandlevy.co.uk", class="new-tab-icon", target="_blank") see more of my projects
+    
+    section.footer-wrapper
+      footer
+        p.text-center &copy; Roland Levy 2020 
+          a(href="https://rolandlevy.co.uk", class="new-tab-icon", target="_blank") see more of my projects
 
     script
       include ../public/scripts/utils.js

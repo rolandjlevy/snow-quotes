@@ -19,22 +19,17 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       - const delay = randomNum(0, duration);
       - colourType = Number(multicolour) ? colours.randomHexString() : colour;
       - n++;
+      
       div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${colourType}` id=`${n}`) 
         span.inner #{randomItem(lettersArr).toUpperCase()}
 
-    img(
-      src="images/app-image.png"
-      class="hidden"
-    )
+    img(src="images/app-image.png", class="hidden")
+
+    input(type="text", class="hidden quote-text")
 
     .tooltip
-
-    input(
-      type="text"
-      class="hidden quote-text"
-    )
     
-    .toast-message.none 
+    .toast-message.none
       span.m-r-5 Quote copied to clipboard&nbsp;
       i(class="fas fa-check")
 

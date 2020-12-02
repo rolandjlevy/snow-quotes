@@ -105,32 +105,6 @@ main.container {
   margin-bottom: 30px;
 }
 
-footer {
-  max-width: 640px;
-  color: var(--light-blue-grey);
-  height: 50px;
-  margin: 0;
-}
-
-footer a {
-  color: var(--light-blue-grey);
-  font-weight: bold;
-  transition: all 0.2s ease;
-}
-
-footer a:hover {
-  color: #fff;
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-.new-tab-icon::after {
-  font-family: "Font Awesome 5 Free"; 
-  font-weight: 900; 
-  content: "\f35d";
-  margin-left: 5px;
-}
-
 a.link, a.link:visited {
   color: var(--light-blue-grey);
   font-size: 1.125rem;
@@ -145,9 +119,12 @@ a.link:hover {
   text-align: center;
 }
 
-@media only screen and (max-width: 480px) {
-  h1, footer {
+@media only screen and (max-width: 535px) {
+  h1, h2 {
     text-align: center;
+  }
+  .footer-wrapper {
+    justify-content: center;
   }
   .section-m-r-5 {
     margin-right: 0;
