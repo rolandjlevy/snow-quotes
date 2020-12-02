@@ -62,7 +62,7 @@ const fetchQuotes = () => {
 
 // Filter out words in ignoreList
 const filteredQuotes = (arr) => {
-  const ignoreList = ['trump', 'dalai'];
+  const ignoreList = ['tenzin', 'trump', 'dalai'];
   const filtered = arr.reduce((acc, item) => {
     const ignore = item.author && item.author.split(' ').some(word => ignoreList.includes(word.toLowerCase()));
     if (ignore == false) {

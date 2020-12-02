@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const pug = require('pug');
+const shortUrl = require('node-url-shortener');
 const dotenv = require('dotenv');
 const port = process.env.PORT || 3000;
 const baseUrl = process.env.API_URL;
-const shortUrl = require('node-url-shortener');
 
 const Colours = require('./src/Colours');
 const colours = new Colours();
@@ -29,7 +29,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  res.render('index.pug', {});
+  const initialInput = 'happyholidays';
+  const initialColour = '#ffffff';
+  const maxAmount = 300;
+  res.render('index.pug', {initialInput, initialColour, maxAmount});
 });
 
 app.get('/snow', (req, res) => {

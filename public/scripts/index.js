@@ -1,6 +1,6 @@
 const isTag = (str) => /<[^>]*>/g.test(str);
 const withinFontFaceSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
-const maxSnowflakes = 200;
+const maxSnowflakes = 300;
 
 // Validate all input fields
 $$('input').forEach(item => {
