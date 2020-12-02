@@ -18,13 +18,12 @@ const validate = () => {
   }
   toggleButtons('remove');
   $('.btn.start').href = getQueryString();
-  console.log('getQueryString:', getQueryString())
   $('input.hidden.url').value = location.origin + getQueryString();
 }
 
 // Toggle disabled state of all buttons
 const toggleButtons = (action) => {
-  $$('.btn').forEach(item => {
+  $$('.btn, input.colour').forEach(item => {
     item.classList[action]('disabled');
   });
 }

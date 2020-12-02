@@ -56,12 +56,12 @@ html(xmlns="http://www.w3.org/1999/xhtml")
               span.colour-group.colour.active.width-50
                 label(for="colour", class="colour-label m-b-10") Single colour&nbsp;
                   i(class="fas fa-check")
-                input(type="color", class="colour m-b-30", name="colour", value=`${initialColour}`, id="colour")
+                input(type="color", class="colour m-b-30", name="colour", value=`${initialColour}`)
 
               span.colour-group.multicolour.width-50.m-l-10
                 label(for="multi-colour", class="multicolour-label m-b-10") Multiple colours&nbsp;
                   i(class="fas fa-check")
-                input(type="button", class="btn multicolour m-b-30", id="multi-colour")
+                input(type="button", class="btn multicolour m-b-30")
                 input(type="hidden", name="multicolour", value="0")
 
           .fieldset
