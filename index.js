@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
+  console.log('req.query:', req.query)
   res.locals.data = req.rawBody ? req.body : req.query;
   next();
 });
@@ -42,7 +43,7 @@ app.post('/snow', (req, res) => {
 
 const renderSnow = ({req, res}) => {
   const { letters, quantity, colour, multicolour } = res.locals.data;
-  console.log({ letters, quantity, colour, multicolour })
+  console.log({ letters, quantity, colour, multicolour });
   res.render('snow.pug', {
     letters,
     quantity,

@@ -18,6 +18,7 @@ const validate = () => {
   }
   toggleButtons('remove');
   $('.btn.start').href = getQueryString();
+  console.log('getQueryString:', getQueryString())
   $('input.hidden.url').value = location.origin + getQueryString();
 }
 
