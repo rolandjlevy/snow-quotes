@@ -21,7 +21,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       - n++;
       
       div(class="snowflake" style=`--size:${size}; --x:${x}; --y:${y}; --opacity:${opacity}; --dir:${randomItem(dir)}; --duration:${duration}; --delay:${delay}; --colour:${colourType}` id=`${n}`) 
-        span.inner #{randomItem(lettersArr).toUpperCase()}
+        span.inner #{randomItem(lettersArr)}
 
     img(src="images/app-image.png", class="hidden")
 
