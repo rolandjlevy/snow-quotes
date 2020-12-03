@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const pug = require('pug');
 const shortUrl = require('node-url-shortener');
+const tinyUrl = require('tinyurl');
 const dotenv = require('dotenv');
 const port = process.env.PORT || 3000;
 const baseUrl = process.env.API_URL;
@@ -29,7 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  const initialInput = 'roughwave'; // findroughwave, whingedfavour, warnfivedough
+  const initialInput = ''; // findroughwave, whingedfavour, warnfivedough
   const initialColour = '#ffffff';
   const maxAmount = 300;
   res.render('index.pug', {initialInput, initialColour, maxAmount});
@@ -70,6 +71,15 @@ const getShortUrl = (longUrl) => {
     });
   });
 }
+
+// const getTinyUrl = (longUrl) => {
+//   return new Promise((resolve, reject) => {
+//     return tinyUrl.shorten(longUrl, (res, err) => {
+//       if (err) reject(err);
+//       resolve(res);
+//     });
+//   });
+// }
 
 app.listen(() => {
   console.log('Listening on port', port);

@@ -14,11 +14,11 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       main.container
 
         h1 Snow Quotes
-        h2 Create a sky of snowflakes which reveal inspirational quotes
+        h2 Create a sky of snowflakes, each of which reveals an inspirational quote
 
         form(method="post" action="/snow")
 
-          label(for="letters", class="m-b-10") Enter letters or numbers for symbols
+          label(for="letters", class="m-b-10") Type in different characters
 
           input(
             type="text"
@@ -27,7 +27,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             id="letters"
             value=`${initialInput}`
             autocomplete="off"
-            placeholder=""
+            placeholder="Enter letters and numbers only"
             maxlength="50"
             required
           )
@@ -37,7 +37,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
           .fieldset
 
             section.section-m-r-5.m-b-20
-              label(for="quantity", class="m-b-10") Amount: 1-300
+              label(for="quantity", class="m-b-10") Choose the amount of snowflakes
               input(
                 type="number"
                 class="quantity"
@@ -47,7 +47,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
                 min="1"
                 max=`${maxAmount}`
                 autocomplete="off"
-                placeholder=""
+                placeholder="Enter any number 1-300"
                 required
               )
 
@@ -67,7 +67,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
           .fieldset
             section.section-m-r-5.m-b-20
               a(type="button", class="btn start")
-                span SEE SNOW QUOTES&nbsp;
+                span SEE YOUR SNOW QUOTES&nbsp;
                 span(class="snowflake-icon") I
 
             section.section-m-l-5.m-b-20

@@ -8,10 +8,25 @@
   --light-blue-grey: #e1e1ee;
   --mid-blue-grey: #a4a4c4;
   --dark-blue-grey: #767696;
-  --quote-left: '\201C';
-  --quote-right: '\201D';
   --quote-mark-colour: #868fa3;
   --quote-border-colour: #868fa366;
+  --quote-left: '\201C';
+  --quote-right: '\201D';
+  --mid-grey: #82868f;
   --mobile-max-width: 400px;
+  --user-select: initial;
   --b: calc(1vmax);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--mid-grey);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--mid-grey);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--mid-grey);
 }

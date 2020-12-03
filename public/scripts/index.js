@@ -1,6 +1,5 @@
 const isTag = (str) => /<[^>]*>/g.test(str);
 const withinFontFaceSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
-const maxSnowflakes = 300;
 
 // Validate all input fields
 $$('input').forEach(item => {
@@ -11,7 +10,7 @@ $$('input').forEach(item => {
 const validate = () => {
   let errors = 0;
   errors += $('input.letters').value ? 0 : 1;
-  errors += $('input.quantity').value ? 0 : 1;
+  errors += $('input.quantity').value > 0 ? 0 : 1;
   if (errors > 0) {
     toggleButtons('add');
     return;
@@ -53,8 +52,9 @@ $('input.letters').addEventListener('focus', (e) => {
 
 // Validate quantity input
 $('input.quantity').addEventListener('input', (e) => {
-  if (e.target.value > maxSnowflakes) e.target.value = maxSnowflakes;
-  if (e.target.value < 1) e.target.value = '';
+  const { value, max } = e.target;
+  if (value > max) value = max;
+  if (value < 1) value = '';
 });
 
 // Turn multicolour on
@@ -94,14 +94,6 @@ const getQueryString = () => {
   const multicolour = encodeURIComponent($('input[name=multicolour]').value);
   const query = `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`;
   return query;
-}
-
-// Get fully encoded query string for share buttons
-const getQueryStringEncoded = () => {
-  const letters = $('input.letters').value;
-  const quantity = $('input.quantity').value;
-  const colour = encodeURIComponent($('input.colour').value);
-  return encodeURIComponent(`${location.origin}/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`);
 }
 
 // For url shortening

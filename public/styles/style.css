@@ -4,7 +4,7 @@
 
 html {
   touch-action: manipulation;
-  user-select: none;
+  user-select: var(--user-select);
   color: #fff;
   font-size: 0.875rem;
   -webkit-font-smoothing: antialiased;
