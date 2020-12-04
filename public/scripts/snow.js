@@ -4,6 +4,13 @@ const setVar = (elem, varName, value) => elem.style.setProperty(varName, value);
 
 let tooltipOn = false;
 
+const insideMenu = (elem) => {
+  const { top, left, width, height } = elem.getBoundingClientRect();
+  const menuBottom = $('.menu .content').getBoundingClientRect().bottom;
+  const menuRight = $('.menu .content').getBoundingClientRect().right;
+  return top + height/2 < menuBottom && left + width/2 < menuRight;
+}
+
 $$('.snowflake').forEach(item => {
   // Show quotes
   item.addEventListener('mouseenter', (e) => {
@@ -49,13 +56,6 @@ $$('.snowflake').forEach(item => {
 $('.toast-message').addEventListener(animationEvent, (e) => {
   e.currentTarget.classList.add('none');
 });
-
-const insideMenu = (elem) => {
-  const { top, left, width, height } = elem.getBoundingClientRect();
-  const menuBottom = $('.menu .content').getBoundingClientRect().bottom;
-  const menuRight = $('.menu .content').getBoundingClientRect().right;
-  return top + height/2 < menuBottom && left + width/2 < menuRight;
-}
 
 /**********/
 /* Quotes */

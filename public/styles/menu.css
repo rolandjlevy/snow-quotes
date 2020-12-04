@@ -1,3 +1,7 @@
+:root {
+  --menu-size: 120px;
+}
+
 .menu {
   position: fixed;
   top: 0;
@@ -6,10 +10,10 @@
 
 .menu > label > .content {
   position: absolute;
-  top: -50px;
-  left: -50px;
-  width: 100px;
-  height: 100px;
+  top: calc(var(--menu-size) * -0.5);
+  left: calc(var(--menu-size) * -0.5);
+  width: var(--menu-size);
+  height: var(--menu-size);
   background-color: var(--bg-colour-trans);
   border-radius: 50%;
   pointer-events: none;
@@ -23,7 +27,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -35,13 +39,13 @@
 
 input[id=menu-toggle] {
   position: absolute;
-  left: -100px;
+  left: -500px;
   width: auto;
   height: auto;
 }
 
 input[id=menu-toggle]:checked + .content {
-  transform: scale(2);
+  transform: scale(1.75);
   background-color: var(--dark-blue-grey-trans);
   transition: all 0.25s ease;
 }
