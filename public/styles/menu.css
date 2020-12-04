@@ -1,0 +1,47 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.menu > label > .content {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--bg-colour-trans);
+  border-radius: 50%;
+  /* pointer-events: none; */
+  transform: scale(1);
+  transition: all 0.25s ease;
+}
+
+.menu > label > i {
+  color: #ffffff99;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.menu > label > i:hover {
+  color: #fff;
+  transition: all 0.25s ease;
+}
+
+input[id=menu-toggle] {
+  position: absolute;
+  left: -100px;
+  width: auto;
+  height: auto;
+}
+
+input[id=menu-toggle]:checked + .content {
+  transform: scale(2);
+  background-color: var(--dark-blue-grey-trans);
+  transition: all 0.25s ease;
+}

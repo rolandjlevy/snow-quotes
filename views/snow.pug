@@ -28,7 +28,13 @@ html(xmlns="http://www.w3.org/1999/xhtml")
     input(type="text", class="hidden quote-text")
 
     .tooltip
-    
+
+    .menu
+      label(for="menu-toggle")
+        input(type="checkbox", name="menu-toggle", id="menu-toggle")
+        .content
+        i(class="fas fa-cog")
+      
     .toast-message.none
       span.m-r-5 Quote copied to clipboard&nbsp;
       i(class="fas fa-check")

@@ -3,11 +3,20 @@ const getVar = (elem, varName) => getComputedStyle(elem).getPropertyValue(varNam
 const setVar = (elem, varName, value) => elem.style.setProperty(varName, value);
 
 let tooltipOn = false;
+let mouseOverMenu = false;
+
+$('.menu').addEventListener('mouseenter', (e) => {
+  mouseOverMenu = true;
+});
+
+$('.menu').addEventListener('mouseleave', (e) => {
+  mouseOverMenu = false;
+});
 
 $$('.snowflake').forEach(item => {
   // Show quote
   item.addEventListener('mouseenter', (e) => {
-    if (!tooltipOn) {
+    if (!tooltipOn && !mouseOverMenu) {
       const pos = Number(e.target.id) || parseInt(e.target.id);
       const author = quotes[pos] && !!quotes[pos].author ? ` ${quotes[pos].author}` : '';
       const quote = `<span class="quote">${quotes[pos].text}</span>${author}`;
@@ -27,7 +36,7 @@ $$('.snowflake').forEach(item => {
   });
   // Trigger toast message when clicking on a snowflake
   item.addEventListener('click', (e) => {
-    if (mobileView) return;
+    if (mobileView || mouseOverMenu) return;
     const id = Number(e.target.id);
     const { text, author } = quotes[id];
     $('.toast-message').style.animationPlayState = 'running';

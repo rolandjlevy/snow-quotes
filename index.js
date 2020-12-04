@@ -30,7 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  const initialInput = ''; // findroughwave, whingedfavour, warnfivedough
+  const initialInput = 'eg'; // findroughwave, whingedfavour, warnfivedough
   const initialColour = '#ffffff';
   const maxAmount = 300;
   res.render('index.pug', {initialInput, initialColour, maxAmount});
@@ -71,15 +71,6 @@ const getShortUrl = (longUrl) => {
     });
   });
 }
-
-// const getTinyUrl = (longUrl) => {
-//   return new Promise((resolve, reject) => {
-//     return tinyUrl.shorten(longUrl, (res, err) => {
-//       if (err) reject(err);
-//       resolve(res);
-//     });
-//   });
-// }
 
 app.listen(() => {
   console.log('Listening on port', port);
