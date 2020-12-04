@@ -12,7 +12,7 @@
   height: 100px;
   background-color: var(--bg-colour-trans);
   border-radius: 50%;
-  /* pointer-events: none; */
+  pointer-events: none;
   transform: scale(1);
   transition: all 0.25s ease;
 }

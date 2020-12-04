@@ -3,20 +3,11 @@ const getVar = (elem, varName) => getComputedStyle(elem).getPropertyValue(varNam
 const setVar = (elem, varName, value) => elem.style.setProperty(varName, value);
 
 let tooltipOn = false;
-let mouseOverMenu = false;
-
-$('.menu').addEventListener('mouseenter', (e) => {
-  mouseOverMenu = true;
-});
-
-$('.menu').addEventListener('mouseleave', (e) => {
-  mouseOverMenu = false;
-});
 
 $$('.snowflake').forEach(item => {
-  // Show quote
+  // Show quotes
   item.addEventListener('mouseenter', (e) => {
-    if (!tooltipOn && !mouseOverMenu) {
+    if (!tooltipOn && !insideMenu(item)) {
       const pos = Number(e.target.id) || parseInt(e.target.id);
       const author = quotes[pos] && !!quotes[pos].author ? ` ${quotes[pos].author}` : '';
       const quote = `<span class="quote">${quotes[pos].text}</span>${author}`;
@@ -25,6 +16,7 @@ $$('.snowflake').forEach(item => {
       tooltipOn = true;
       e.currentTarget.style.animationPlayState = 'paused';
       e.currentTarget.style.opacity = 1;
+      e.currentTarget.classList.add('hover');
     }
   });
   // Hide quote
@@ -33,10 +25,11 @@ $$('.snowflake').forEach(item => {
     $('.tooltip').classList.remove('active');
     e.currentTarget.style.animationPlayState = 'running';
     e.currentTarget.style.opacity = getVar(e.currentTarget, '--opacity');
+    e.currentTarget.classList.remove('hover');
   });
   // Trigger toast message when clicking on a snowflake
   item.addEventListener('click', (e) => {
-    if (mobileView || mouseOverMenu) return;
+    if (mobileView || insideMenu(item)) return;
     const id = Number(e.target.id);
     const { text, author } = quotes[id];
     $('.toast-message').style.animationPlayState = 'running';
@@ -56,6 +49,17 @@ $$('.snowflake').forEach(item => {
 $('.toast-message').addEventListener(animationEvent, (e) => {
   e.currentTarget.classList.add('none');
 });
+
+const insideMenu = (elem) => {
+  const { top, left, width, height } = elem.getBoundingClientRect();
+  const menuBottom = $('.menu .content').getBoundingClientRect().bottom;
+  const menuRight = $('.menu .content').getBoundingClientRect().right;
+  return top + height/2 < menuBottom && left + width/2 < menuRight;
+}
+
+/**********/
+/* Quotes */
+/**********/
 
 // Fetching from quotes API
 const fetchQuotes = () => {
@@ -82,7 +86,7 @@ const filteredQuotes = (arr) => {
   return shuffle(filtered);
 }
 
-// Fetch quotes from API
+// Set quotes
 let quotes;
 fetchQuotes().then(result => {
   quotes = result;
