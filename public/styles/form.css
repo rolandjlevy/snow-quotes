@@ -111,7 +111,7 @@ a.disabled {
 }
 
 label {
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .width-25 {

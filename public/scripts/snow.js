@@ -58,9 +58,17 @@ $('.toast-message').addEventListener(animationEvent, (e) => {
 });
 
 // Menu icons
-$$('.content .icon > i').forEach(item => {
+$$('.content .menu-icon > i').forEach(item => {
   item.addEventListener('click', (e) => {
-    console.log('.content .icon > i:', e.target.id);
+    if (e.target.id == 'font') {
+      $$('.snowflake').forEach(item => {
+        item.classList.toggle('abc');
+      });
+    } else if (e.target.id == 'home') {
+      location.href = '/';
+    } else if (e.target.id == 'mode') {
+      $('body').classList.toggle('light-mode');
+    }
     e.preventDefault();
   });
 });

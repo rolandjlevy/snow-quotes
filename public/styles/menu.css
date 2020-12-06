@@ -24,7 +24,7 @@
 
 .menu > label > i {
   color: #ffffff99;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -51,7 +51,7 @@ input[id=menu-toggle]:checked + .content {
   transition: all 0.25s ease;
 }
 
-.icon-container {
+.menu-icon-container {
   position: absolute;
   top: 60px;
   left: 60px;
@@ -63,38 +63,45 @@ input[id=menu-toggle]:checked + .content {
   transform-origin: top left;
 }
 
-.icon-container:nth-child(1) { transform: rotate(330deg); }
-.icon-container:nth-child(2) { transform: rotate(0deg); }
-.icon-container:nth-child(3) { transform: rotate(30deg); }
+.menu-icon-container:nth-child(1) { transform: rotate(330deg); }
+.menu-icon-container:nth-child(2) { transform: rotate(0deg); }
+.menu-icon-container:nth-child(3) { transform: rotate(30deg); }
 
-.icon {
+.menu-icon {
   position: absolute;
   bottom: 5px;
-  right: 5px;
+  right: 0;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   color: #fff;
   border: none;
-  transform: scale(0.5);
   opacity: 0;
+  transform: scale(0.5) rotate(0deg);
   transition: all 0.25s ease;
 }
 
-.icon > i {
+.menu-icon > i {
   color: #ffffff99;
   font-size: 0.75rem;
   pointer-events:initial;
   cursor: pointer;
 }
 
-.icon > i:hover {
+.menu-icon > i:hover {
   color: #fff;
 }
 
-input[id=menu-toggle]:checked + .content .icon {
-  transform: scale(1);
+input[id=menu-toggle]:checked + .content .menu-icon {
+  transform: scale(1) rotate(0deg);
   opacity: 1;
   transition: all 0.25s ease;
 }
 
+input[id=menu-toggle]:checked + .content .menu-icon-container:nth-child(1) > .menu-icon {
+  transform: scale(1) rotate(30deg);
+}
+
+input[id=menu-toggle]:checked + .content .menu-icon-container:nth-child(3) > .menu-icon {
+  transform: scale(1) rotate(-30deg);
+}

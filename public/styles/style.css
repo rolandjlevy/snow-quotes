@@ -16,13 +16,19 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: var(--bg-colour);
+  background-color: var(--bg-colour);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+body.light-mode {
+  background: #fff;
+  transition: background-color 0.5s ease;
 }
 
 h1 {
