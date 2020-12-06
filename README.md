@@ -3,9 +3,9 @@
 Choose various symbols, a colour and amount to fill the night sky with gently falling snowflakes. Each one reveals an inspirational quote when you hover over it 💬
 
 ### Links 🔗
-- [See the demo](https://express-snow-quotes.rolandjlevy.repl.co/)
-- [View the source code](https://repl.it/@RolandJLevy/express-snow-quotes)
-- [Explore the Github repo](https://github.com/rolandjlevy/express-snow-quotes)
+- [See the demo](https://snow-quotes.rolandjlevy.repl.co)
+- [View the source code](https://repl.it/@RolandJLevy/snow-quotes)
+- [Explore the Github repo](https://github.com/rolandjlevy/snow-quotes)
 
 ### Features 💡
 - Customise your **Snow Quotes** with various letters and numbers, select the amount and colour you want
