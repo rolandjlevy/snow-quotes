@@ -6,6 +6,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  color: #fff;
+}
+
+.menu.light-mode {
+  color: #000;
 }
 
 .menu > label > .content {
@@ -19,23 +24,24 @@
   border-radius: 50%;
   pointer-events: none;
   transform: scale(1);
-  transition: all 0.25s ease;
+  transition: all 0.15s ease;
 }
 
 .menu > label > i {
-  color: #ffffff99;
+  color: inherit;
+  opacity: 0.7;
   font-size: 1.25rem;
   position: absolute;
   top: 0;
   left: 0;
   margin: 10px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: opacity 0.15s ease;
 }
 
 .menu > label > i:hover {
-  color: #fff;
-  transition: all 0.25s ease;
+  opacity: 1;
+  transition: opacity 0.15s ease;
 }
 
 input[id=menu-toggle] {
@@ -74,28 +80,29 @@ input[id=menu-toggle]:checked + .content {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  color: #fff;
   border: none;
   opacity: 0;
   transform: scale(0.5) rotate(0deg);
-  transition: all 0.25s ease;
 }
 
 .menu-icon > i {
-  color: #ffffff99;
+  color: inherit;
+  opacity: 0.7;
   font-size: 0.75rem;
   pointer-events:initial;
   cursor: pointer;
+  transition: opacity 0.15s ease;
 }
 
 .menu-icon > i:hover {
-  color: #fff;
+  opacity: 1;
+  transition: opacity 0.15s ease;
 }
 
 input[id=menu-toggle]:checked + .content .menu-icon {
   transform: scale(1) rotate(0deg);
   opacity: 1;
-  transition: all 0.25s ease;
+  transition: all 0.15s ease;
 }
 
 input[id=menu-toggle]:checked + .content .menu-icon-container:nth-child(1) > .menu-icon {

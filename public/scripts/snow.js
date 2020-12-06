@@ -68,6 +68,7 @@ $$('.content .menu-icon > i').forEach(item => {
       location.href = '/';
     } else if (e.target.id == 'mode') {
       $('body').classList.toggle('light-mode');
+      $('.menu').classList.toggle('light-mode');
     }
     e.preventDefault();
   });
