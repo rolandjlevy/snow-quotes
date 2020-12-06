@@ -14,11 +14,11 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       main.container
 
         h1 Snow Quotes
-        h2 Create a sky of snowflakes, each of which reveals an inspirational quote
+        h2 Create a sky of snowflakes, each of which reveals an inspirational quote you can share with your friends
 
         form(method="post" action="/snow")
 
-          label(for="letters", class="m-b-10") Type in different characters
+          label(for="letters", class="m-b-10") As you type see the different snowflake shapes
 
           input(
             type="text"
@@ -37,13 +37,13 @@ html(xmlns="http://www.w3.org/1999/xhtml")
           .fieldset
 
             section.section-m-r-5.m-b-20
-              label(for="quantity", class="m-b-10") Choose the amount of snowflakes
+              label(for="quantity", class="m-b-10") Enter the amount of snowflakes
               input(
                 type="number"
                 class="quantity"
                 name="quantity"
                 id="quantity"
-                value="150"
+                value=""
                 min="1"
                 max=`${maxAmount}`
                 autocomplete="off"
@@ -54,12 +54,12 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             section.colour-row.section-m-l-5.m-b-20
 
               span.colour-group.colour.active.width-50
-                label(for="colour", class="colour-label m-b-10") Single colour&nbsp;
+                label(for="colour", class="colour-label m-b-10") Select a colour&nbsp;
                   i(class="fas fa-check")
                 input(type="color", class="colour m-b-30", name="colour", value=`${initialColour}`)
 
               span.colour-group.multicolour.width-50.m-l-10
-                label(for="multi-colour", class="multicolour-label m-b-10") Multiple colours&nbsp;
+                label(for="multi-colour", class="multicolour-label m-b-10") Select mixed colours&nbsp;
                   i(class="fas fa-check")
                 input(type="button", class="btn multicolour m-b-30")
                 input(type="hidden", name="multicolour", value="0")
@@ -92,7 +92,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
     section.footer-wrapper
       footer
         p.text-center &copy; Roland Levy 2020 
-          a(href="https://rolandlevy.co.uk", class="new-tab-icon", target="_blank") see more of my projects
+          a(href="https://rolandlevy.co.uk", class="new-tab-icon", target="_blank") see more of my JavaScript projects
 
     script
       include ../public/scripts/utils.js

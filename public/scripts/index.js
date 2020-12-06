@@ -53,8 +53,9 @@ $('input.letters').addEventListener('focus', (e) => {
 // Validate quantity input
 $('input.quantity').addEventListener('input', (e) => {
   const { value, max } = e.target;
-  if (value > max) value = max;
-  if (value < 1) value = '';
+  const [ nValue, nMax ] = [Number(value), Number(max)];
+  if (nValue > nMax) e.target.value = nMax;
+  if (nValue < 1) e.target.value = '';
 });
 
 // Turn multicolour on
