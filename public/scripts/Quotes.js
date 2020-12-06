@@ -1,6 +1,6 @@
 export default class Quotes {
   constructor() {
-    console.log('Quotes');
+    this.fetchQuotes().then(result => this.list = result);
   }
   // Fetching from quotes API
   fetchQuotes() {
