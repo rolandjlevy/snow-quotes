@@ -83,6 +83,7 @@ input[id=menu-toggle]:checked + .content {
   border: none;
   opacity: 0;
   transform: scale(0.5) rotate(0deg);
+  transition: all 0.15s ease;
 }
 
 .menu-icon > i {
@@ -107,8 +108,10 @@ input[id=menu-toggle]:checked + .content .menu-icon {
 
 input[id=menu-toggle]:checked + .content .menu-icon-container:nth-child(1) > .menu-icon {
   transform: scale(1) rotate(30deg);
+  transition: all 0.15s ease;
 }
 
 input[id=menu-toggle]:checked + .content .menu-icon-container:nth-child(3) > .menu-icon {
   transform: scale(1) rotate(-30deg);
+  transition: all 0.15s ease;
 }
