@@ -57,6 +57,14 @@ $('.toast-message').addEventListener(animationEvent, (e) => {
   e.currentTarget.classList.add('none');
 });
 
+// Menu icons
+$$('.content .icon > i').forEach(item => {
+  item.addEventListener('click', (e) => {
+    console.log('.content .icon > i:', e.target.id);
+    e.preventDefault();
+  });
+});
+
 /**********/
 /* Quotes */
 /**********/

@@ -14,7 +14,8 @@
   left: calc(var(--menu-size) * -0.5);
   width: var(--menu-size);
   height: var(--menu-size);
-  background-color: var(--bg-colour-trans);
+  background-color: var(--dark-blue-grey-trans);
+  opacity: 0.5;
   border-radius: 50%;
   pointer-events: none;
   transform: scale(1);
@@ -45,7 +46,55 @@ input[id=menu-toggle] {
 }
 
 input[id=menu-toggle]:checked + .content {
-  transform: scale(1.75);
-  background-color: var(--dark-blue-grey-trans);
+  transform: scale(1.5);
+  opacity: 1;
   transition: all 0.25s ease;
 }
+
+.icon-container {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  border: none;
+  background:transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform-origin: top left;
+}
+
+.icon-container:nth-child(1) { transform: rotate(330deg); }
+.icon-container:nth-child(2) { transform: rotate(0deg); }
+.icon-container:nth-child(3) { transform: rotate(30deg); }
+
+.icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  color: #fff;
+  border: none;
+  transform: scale(0.5);
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.icon > i {
+  color: #ffffff99;
+  font-size: 0.75rem;
+  pointer-events:initial;
+  cursor: pointer;
+}
+
+.icon > i:hover {
+  color: #fff;
+}
+
+input[id=menu-toggle]:checked + .content .icon {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.25s ease;
+}
+
