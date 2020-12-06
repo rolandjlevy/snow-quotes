@@ -30,7 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  const initialInput = ''; // findroughwave, whingedfavour, warnfivedough
+  const initialInput = '123'; // findroughwave, whingedfavour, warnfivedough
   const initialColour = '#e1e1ee';
   const maxAmount = 300;
   res.render('index.pug', {initialInput, initialColour, maxAmount});
