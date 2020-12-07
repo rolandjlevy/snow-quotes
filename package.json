@@ -9,8 +9,7 @@
     "express": "^4.17.1",
     "node-url-shortener": "^1.1.11",
     "pug": "^3.0.0",
-    "src": "^1.1.2",
-    "tinyurl": "^1.1.7"
+    "src": "^1.1.2"
   },
   "devDependencies": {},
   "scripts": {

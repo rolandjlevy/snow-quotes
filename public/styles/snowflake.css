@@ -22,7 +22,6 @@
 }
 
 .snowflake > span {
-  font-weight: normal;
   font-size: calc((1vmax / 5) * var(--size));
   color: var(--colour);
 }

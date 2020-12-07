@@ -5,12 +5,12 @@
   top: 20px;
   right: 20px;
   padding: calc(1vmax) calc(1vmax * 2);
-  color: #000;
+  color: var(--mode-bg-colour);
   opacity: 0;
   font-size: clamp(1.25rem, 2vmax, 1.75rem);
   width: auto;
   font-weight: normal;
-  background: #fff;
+  background: var(--mode-text-colour);
   transform: scale(0.5);
   animation: copied 3s ease-in-out 0s 1 forwards paused;
   animation-play-state: unset;

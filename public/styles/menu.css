@@ -19,7 +19,7 @@
   border-radius: 50%;
   pointer-events: none;
   transform: scale(1);
-  transition: all 0.15s ease;
+  transition: all 0.25s ease;
 }
 
 .menu > label > i {
@@ -77,7 +77,7 @@ input[id=menu-toggle]:checked + .content {
   border: none;
   opacity: 0;
   transform: scale(0.5) rotate(0deg);
-  transition: all 0.15s ease;
+  transition: all 0.25s ease;
 }
 
 .menu-icon > i {
@@ -96,15 +96,15 @@ input[id=menu-toggle]:checked + .content {
 input[id=menu-toggle]:checked + .content .menu-icon {
   transform: scale(1) rotate(0deg);
   opacity: 1;
-  transition: all 0.15s ease;
+  transition: all 0.25s ease;
 }
 
 input[id=menu-toggle]:checked + .content .menu-icon-container:nth-child(1) > .menu-icon {
   transform: scale(1) rotate(30deg);
-  transition: all 0.15s ease;
+  transition: all 0.25s ease;
 }
 
 input[id=menu-toggle]:checked + .content .menu-icon-container:nth-child(3) > .menu-icon {
   transform: scale(1) rotate(-30deg);
-  transition: all 0.15s ease;
+  transition: all 0.25s ease;
 }
