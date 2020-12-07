@@ -7,7 +7,7 @@ export default class Toast extends Utils {
     this.quotes = quotes;
     this.animationEvent =  'onanimationend' in document.documentElement ? 'animationend' : 'webkitAnimationEnd';
     this.mobileView = 'ontouchstart' in document.documentElement;
-    this.init();
+    this.reset();
   }
   // Trigger toast message when clicking on a snowflake
   triggerMessage(item, e) {
@@ -21,7 +21,7 @@ export default class Toast extends Utils {
     document.execCommand('copy');
   }
   // Reset toast message for settings copied
-  init() {
+  reset() {
     this.$('.toast-message').addEventListener(this.animationEvent, (e) => {
       e.currentTarget.classList.add('none');
     });
