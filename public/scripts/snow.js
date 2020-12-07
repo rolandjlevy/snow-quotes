@@ -5,7 +5,8 @@ import Menu from './Menu.js';
 const menu = new Menu();
 
 import Toast from './Toast.js';
-const toast = new Toast(menu, quotes);
+const toast = new Toast();
 
 import Snowflakes from './Snowflakes.js';
-new Snowflakes(menu, quotes, toast);
+const snowflakes = new Snowflakes();
+snowflakes.init(toast, menu, quotes);

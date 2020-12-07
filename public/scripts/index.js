@@ -1,6 +1,13 @@
 const isTag = (str) => /<[^>]*>/g.test(str);
 const withinFontFaceSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
 
+import Sharing from './Sharing.js';
+const sharing = new Sharing();
+
+import Toast from './Toast.js';
+const toast = new Toast();
+toast.init();
+
 // Validate all input fields
 $$('input').forEach(item => {
   item.addEventListener('input', (e) => validate());
@@ -16,8 +23,8 @@ const validate = () => {
     return;
   }
   toggleButtons('remove');
-  $('.btn.start').href = getQueryString();
-  $('input.hidden.url').value = location.origin + getQueryString();
+  $('.btn.start').href = sharing.getQueryString();
+  $('input.hidden.url').value = location.origin + sharing.getQueryString();
 }
 
 // Toggle disabled state of all buttons
@@ -74,58 +81,59 @@ $('input.colour').addEventListener('click', (e) => {
   validate();
 });
 
-// Run toast message for settings copied
-$('.btn.copy').addEventListener('click', (e) => {
-  $('.toast-message').style.animationPlayState = 'running';
-  $('.toast-message').classList.remove('none');
-  $('input.hidden.url').select();
-  document.execCommand('copy');
-});
+// // Run toast message for settings copied
+// $('.btn.copy').addEventListener('click', (e) => {
+//   $('.toast-message').style.animationPlayState = 'running';
+//   $('.toast-message').classList.remove('none');
+//   $('input.hidden.url').select();
+//   document.execCommand('copy');
+// });
 
-// Reset toast message for settings copied
-$('.toast-message').addEventListener(animationEvent, (e) => {
-  e.currentTarget.classList.add('none');
-});
+// // Reset toast message for settings copied
+// $('.toast-message').addEventListener(animationEvent, (e) => {
+//   e.currentTarget.classList.add('none');
+// });
 
-// Get query string for copy settings
-const getQueryString = () => {
-  const letters = encodeURIComponent($('input.letters').value);
-  const quantity = encodeURIComponent($('input.quantity').value);
-  const colour = encodeURIComponent($('input.colour').value);
-  const multicolour = encodeURIComponent($('input[name=multicolour]').value);
-  const query = `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`;
-  return query;
-}
+$('input.letters').focus();
 
-// For url shortening
-function getShortUrl(url) {
-  return new Promise((resolve, reject) => {
-    return fetch(url)
-    .then(res => res.text())
-    .then(data => {
-      resolve(data);
-    })
-    .catch(err => {
-      reject(err);
-    });
-  });
-}
+// // Get query string for copy settings
+// const getQueryString = () => {
+//   const letters = encodeURIComponent($('input.letters').value);
+//   const quantity = encodeURIComponent($('input.quantity').value);
+//   const colour = encodeURIComponent($('input.colour').value);
+//   const multicolour = encodeURIComponent($('input[name=multicolour]').value);
+//   const query = `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`;
+//   return query;
+// }
 
-const sharing = {
-  whatsapp: 'https://wa.me/?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-+',
-  facebook: 'https://www.facebook.com/sharer/sharer.php?text=hello&u=',
-  twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url='
-}
+// // For url shortening
+// function getShortUrl(url) {
+//   return new Promise((resolve, reject) => {
+//     return fetch(url)
+//     .then(res => res.text())
+//     .then(data => {
+//       resolve(data);
+//     })
+//     .catch(err => {
+//       reject(err);
+//     });
+//   });
+// }
 
-const longUrl = location.origin + '/shorten?longurl=' + location.origin;
+// const sharing = {
+//   whatsapp: 'https://wa.me/?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-+',
+//   facebook: 'https://www.facebook.com/sharer/sharer.php?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy&u=',
+//   twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url='
+// }
 
-getShortUrl(longUrl).then(url => {
-  $('input.hidden.url').value = url;
-  $('.btn.whatsapp').href = sharing['whatsapp'] + url;
-  $('.btn.twitter').href = sharing['twitter'] + url;
-  $('.btn.facebook').href = sharing['facebook'] + url;
-});
+// const longUrl = location.origin + '/shorten?longurl=' + location.origin;
+
+// getShortUrl(longUrl).then(url => {
+//   $('input.hidden.url').value = url;
+//   $('.btn.whatsapp').href = sharing['whatsapp'] + url;
+//   $('.btn.twitter').href = sharing['twitter'] + url;
+//   $('.btn.facebook').href = sharing['facebook'] + url;
+// });
 
 // Initialise
-$('input.letters').focus();
-$('.btn.start').href = getQueryString();
+// $('.btn.start').href = getQueryString();

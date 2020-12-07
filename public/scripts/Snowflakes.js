@@ -1,20 +1,16 @@
 import Utils from './Utils.js';
 
 export default class Snowflakes extends Utils {
-  constructor(menu, quotes, toast) {
+  constructor() {
     super();
-    this.menu = menu;
-    this.quotes = quotes;
-    this.toast = toast;
     this.tooltipOn = false;
-    this.init();
   }
-  init() {
+  init(toast, menu, quotes) {
     this.$$('.snowflake').forEach(item => {
       item.addEventListener('mouseenter', (e) => {
-        if (!this.tooltipOn && !this.menu.inside(item)) {
+        if (!this.tooltipOn && !menu.inside(item)) {
           const pos = Number(e.currentTarget.id) || parseInt(e.currentTarget.id);
-          const q = this.quotes.list[pos];
+          const q = quotes.list[pos];
           const author = q && !!q.author ? ` ${q.author}` : '';
           const quoteHtml = `<span class="quote">${q.text}</span>${author}`;
           this.$('.tooltip').innerHTML = quoteHtml;
@@ -35,7 +31,7 @@ export default class Snowflakes extends Utils {
       });
       // Trigger toast message when clicking on a snowflake
       item.addEventListener('click', (e) => {
-        this.toast.triggerMessage(item, e);
+        toast.triggerMessage(item, e, menu, quotes);
       });
     });
   }
