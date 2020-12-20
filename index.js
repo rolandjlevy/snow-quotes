@@ -29,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  const initialInput = '123';
+  const initialInput = '';
   const initialColour = '#e1e1ee';
   const maxAmount = 300;
   res.render('index.pug', {

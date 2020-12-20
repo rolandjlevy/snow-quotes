@@ -25,7 +25,9 @@ export default class Sharing extends Utils {
     const quantity = encodeURIComponent(this.$('input.quantity').value);
     const colour = encodeURIComponent(this.$('input.colour').value);
     const multicolour = encodeURIComponent(this.$('input[name=multicolour]').value);
-    return `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`;
+    const str = `/snow?letters=${letters}&quantity=${quantity}&colour=${colour}&multicolour=${multicolour}`;
+    console.log({str});
+    return str;
   }
   getShortUrl(url) {
     return new Promise((resolve, reject) => {
