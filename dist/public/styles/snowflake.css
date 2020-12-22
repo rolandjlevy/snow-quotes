@@ -1,0 +1,36 @@
+.snowflake {
+  font-family: var(--font-family-symbols); 
+  margin: 0;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: calc(var(--x, 50) * 1%);
+  opacity: var(--opacity);
+  transform: translate(-50%, -50%) scale(1);
+  animation: float calc(var(--duration, 1) * 1s) calc(var(--delay, 0) * -1s) infinite linear both;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.snowflake.hover {
+  cursor: pointer;
+}
+
+.snowflake.abc {
+  font-family: var(--font-family-serif);
+  font-weight: bold;
+}
+
+.snowflake > span {
+  font-size: calc((1vmax / 5) * var(--size));
+  color: var(--colour);
+}
+
+@keyframes float {
+  from {
+    transform: translate(-50%, -50%) translate(0, -100vh) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) translate(0, 100vh) rotate(calc(360deg * var(--dir)));
+  }
+}

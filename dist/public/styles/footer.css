@@ -1,0 +1,31 @@
+.footer-wrapper {
+  max-width: 640px;
+  display: flex;
+  justify-content: flex-start;
+  width: 75vw;
+}
+
+footer {
+  color: var(--light-blue-grey);
+  height: 50px;
+  margin: 0;
+}
+
+footer a {
+  color: var(--light-blue-grey);
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+footer a:hover {
+  color: #fff;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
+}

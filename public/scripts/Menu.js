@@ -23,7 +23,7 @@ export default class Menu extends Utils {
       this.setColourMode('bg');
     });
   }
-  setColourMode = (prop) => {
+  setColourMode(prop) {
     const body = this.$('body');
     const type = this.darkMode ? 'dark' : 'light';
     const getColour = this.getVar(body, `--${type}-mode-${prop}-colour`);

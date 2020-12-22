@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Mandalas';
+  src:  url("../fonts/Mandalas-Xm7g.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Wingdings';
+  src:  local("Wingdings"),
+        local("Webdings"),
+        local("Zapf Dingbats"),
+        local("Dingbats"),
+        url("../fonts/wingding.woff") format("woff"),
+        url("../fonts/wingding.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}

@@ -1,0 +1,102 @@
+doctype html
+html(xmlns="http://www.w3.org/1999/xhtml")
+  head
+  include head.pug
+
+  body
+
+    span(itemprop="image", itemscope, itemtype="image/jpeg")
+      link(itemprop="url",href="https://express-snow-quotes.rolandjlevy.repl.co/images/app-image-256-256.jpg")
+
+    img(src="images/app-image-256-256.jpg", class="hidden")
+
+    .wrapper
+      main.container
+
+        h1 Snow Quotes
+        h2 Create a sky of snowflakes, each of which reveals an inspirational quote you can share with your friends
+
+        form(method="post" action="/snow")
+
+          label(for="letters", class="m-b-10") As you type see the different snowflake shapes
+
+          input(
+            type="text"
+            class="letters m-b-5"
+            name="letters"
+            id="letters"
+            value=`${initialInput}`
+            autocomplete="off"
+            placeholder="Enter letters and numbers only"
+            maxlength="50"
+            required
+          )
+
+          .display-text.m-b-20 #{initialInput}
+
+          .fieldset
+
+            section.section-m-r-5.m-b-20
+              label(for="quantity", class="m-b-10") Enter the amount of snowflakes
+              input(
+                type="number"
+                class="quantity"
+                name="quantity"
+                id="quantity"
+                value=""
+                min="1"
+                max=`${maxAmount}`
+                autocomplete="off"
+                placeholder="Enter any number 1-300"
+                required
+              )
+
+            section.colour-row.section-m-l-5.m-b-20
+
+              span.colour-group.colour.active.width-50
+                label(for="colour", class="colour-label m-b-10") Select a colour&nbsp;
+                  i(class="fas fa-check")
+                input(type="color", class="colour m-b-30 disabled", name="colour", value=`${initialColour}`)
+
+              span.colour-group.multicolour.width-50.m-l-10
+                label(for="multi-colour", class="multicolour-label m-b-10") Select mixed colours&nbsp;
+                  i(class="fas fa-check")
+                input(type="button", class="btn multicolour m-b-30 disabled")
+                input(type="hidden", name="multicolour", value="0")
+
+          .fieldset
+            section.section-m-r-5.m-b-20
+              a(type="button", class="btn start disabled")
+                span SEE YOUR SNOW QUOTES&nbsp;
+                span(class="snowflake-icon") I
+
+            section.section-m-l-5.m-b-20
+              input(type="text", class="hidden url")
+
+              a.section-m-r-10.width-25.m-b-10(type="button", class="btn copy disabled")
+                i(class="fas fa-copy")
+
+              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon whatsapp disabled", target="_blank")
+                i(class="fab fa-whatsapp")
+
+              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon twitter disabled", target="_blank")
+                i(class="fab fa-twitter")
+
+              a.width-25.m-b-10(type="button", class="btn icon facebook disabled", target="_blank")
+                i(class="fab fa-facebook")
+
+        .toast-message.none 
+          span.m-r-5 Copied to clipboard for sharing&nbsp;
+            i(class="fas fa-check")
+    
+    section.footer-wrapper
+      footer
+        p.text-center &copy; Roland Levy 2020 
+          a(href="https://rolandlevy.co.uk", class="new-tab-icon", target="_blank") see more of my JavaScript projects
+
+    script
+      include ../public/scripts/utilities.js
+      
+    // script
+    //   include ../public/scripts/index.js
+    script(src="scripts/index.js", type="module")

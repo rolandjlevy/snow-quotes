@@ -1,0 +1,56 @@
+.tooltip {
+  position: fixed;
+  width: 40vmax;
+  top: calc(vh / 2);
+  left: calc(vw / 2);
+  padding: 2vmax;
+  background: var(--bg-colour-trans);
+  font-family: var(--font-family-serif);
+  font-size: 4vmax;
+  text-align: center;
+  pointer-events: none;
+  color: var(--bg-colour-trans);
+  border: calc(var(--b) / 4) dashed #f4f4f8cc;
+	box-shadow: 0 0 0 var(--b) var(--bg-colour-trans), 
+              0 0 0 calc(var(--b) / 2) var(--quote-border-colour), 
+              0 0 0 var(--b) var(--quote-border-colour);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.25s ease;
+}
+
+.tooltip.active {
+  color: #fff;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.25s ease;
+}
+
+.tooltip > .quote {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.tooltip > .quote::before,
+.tooltip > .quote::after {
+  color: var(--bg-colour-trans);
+  transition: all 0.25s ease;
+}
+
+.tooltip.active > .quote::before,
+.tooltip.active > .quote::after {
+  transform: scale(1.75) !important;
+  display: inline-block;
+  color: var(--quote-mark-colour);
+  transition: all 0.25s ease;
+}
+
+.tooltip > .quote::before {
+  content: var(--quote-left);
+  margin-right: calc(1vmax * 1.5);
+}
+
+.tooltip > .quote::after {
+  content: var(--quote-right);
+  margin: 0 calc(1vmax / 2);
+}

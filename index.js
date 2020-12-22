@@ -7,9 +7,6 @@ const dotenv = require('dotenv');
 const port = process.env.PORT || 3000;
 const baseUrl = process.env.API_URL;
 
-const Colours = require('./src/Colours');
-const colours = new Colours();
-
 app.use((req, res, next) => {
   req.rawBody = '';
   req.on('data', (chunk) => req.rawBody += chunk);
@@ -25,8 +22,6 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static('public'));
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
   const initialInput = '';
@@ -74,6 +69,32 @@ const getShortUrl = (longUrl) => {
     });
   });
 }
+
+const renameDistPackageJsonFile = (views) => {
+  if (views.includes('dist')) {
+    console.log({views});
+    const fs = require('fs');
+    const oldPath = path.join(__dirname, 'package-dist.json');
+    const newPath = path.join(__dirname, 'package.json');
+    try {
+      if (fs.existsSync(oldPath)) {
+        console.log('rename');
+        fs.rename(oldPath, newPath, function (err) {
+          if (err) console.log('Error: ' + err);
+        });
+      }
+    } catch(err) {
+      console.error(err);
+    }
+  }
+};
+const views = path.join(__dirname, 'views');
+renameDistPackageJsonFile(views);
+app.set('views', views);
+app.set('view engine', 'pug');
+
+const Colours = require('./public/src/Colours');
+const colours = new Colours();
 
 app.listen(() => {
   console.log('Listening on port', port);

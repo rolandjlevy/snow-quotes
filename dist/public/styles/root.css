@@ -1,0 +1,42 @@
+:root {
+  --font-family-symbols: 'Mandalas', 'Wingdings';
+  --font-family-serif: 'Cormorant', serif;
+  --font-family-sans-serif: 'Open Sans', sans-serif;
+  --bg-colour: #000922;
+  --bg-colour-trans: #00092299;
+  --input-bg-colour: #1e2842;
+  --light-blue-grey: #e1e1ee;
+  --mid-blue-grey: #a4a4c4;
+  --dark-blue-grey-trans: #76769666;
+  --dark-blue-grey: #767696;
+  --quote-mark-colour: #868fa3;
+  --quote-border-colour: #868fa366;
+  --mid-grey: #82868f;
+  --dark-mode-text-colour: #ffffff99;
+  --dark-mode-text-hover-colour: #fff;
+  --dark-mode-bg-colour: #000922;
+  --light-mode-text-colour: #00000099;
+  --light-mode-text-hover-colour: #000;
+  --light-mode-bg-colour: #fff;
+  --mode-text-colour: var(--dark-mode-text-colour);
+  --mode-text-hover-colour: var(--dark-mode-text-hover-colour);
+  --mode-bg-colour: var(--dark-mode-bg-colour);
+  --quote-left: '\201C';
+  --quote-right: '\201D';
+  --mobile-max-width: 400px;
+  --user-select: initial;
+  --b: calc(1vmax);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--mid-grey);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--mid-grey);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--mid-grey);
+}
