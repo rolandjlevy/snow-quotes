@@ -23,14 +23,13 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
   transition: background-color 0.5s ease;
 }
 
 h1 {
   font-family: var(--font-family-serif);
   font-size: 3.4rem;
-  margin: 0 0 20px 0;
+  margin: 20px 0;
   line-height: 1;
 }
 
@@ -139,9 +138,6 @@ a.link:hover {
   }
   .section-m-l-5 {
     margin-left: 0;
-  }
-  .section-m-r-10 {
-    margin-right: 0;
   }
   .section-m-l-10 {
     margin-left: 0;

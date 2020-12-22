@@ -81,4 +81,4 @@ $('input.colour').addEventListener('click', (e) => {
   validate();
 });
 
-$('input.letters').focus();
+// $('input.letters').focus();

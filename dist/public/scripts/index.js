@@ -104,4 +104,4 @@ $('input.colour').addEventListener('click', function (e) {
   validate();
 });
 
-$('input.letters').focus();
+// $('input.letters').focus();
