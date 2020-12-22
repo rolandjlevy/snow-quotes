@@ -2,6 +2,8 @@
 
 Fill the night sky with gently falling snowflakes each of which reveals an inspirational quotes when you hover over it 💬
 
+![Demo gif](https://github.com/rolandjlevy/snow-quotes/blob/master/public/images/snow-flakes-demo.gif?raw=true)
+
 ### Links 🔗
 - [See the demo](https://snow-quotes.rolandjlevy.repl.co)
 - [View the source code](https://repl.it/@RolandJLevy/snow-quotes)
