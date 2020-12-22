@@ -16,9 +16,16 @@ html(xmlns="http://www.w3.org/1999/xhtml")
         h1 Snow Quotes
         h2 Create a sky of snowflakes, each of which reveals an inspirational quote you can share with your friends
 
+        .fieldset
+
+          section.m-b-20.width-50
+            img(src="images/snow-flakes-demo.gif" style="width:100%")
+
+          section.section-m-l-10.m-b-20.width-50.instructions Instructions: type some words and numbers to create various snowflake shapes, then enter the amount and colour you want. Share this app by copying it to the clipboard or clicking on the Twitter, WhatsApp or Facebook buttons. View the snow quotes by clicking on the 'SEE YOUR SNOW QUOTES' button. On the next page, hover your mouse over a snowflake to see the quote and click on it to copy the quote text.
+
         form(method="post" action="/snow")
 
-          label(for="letters", class="m-b-10") As you type see the different snowflake shapes
+          label(for="letters", class="m-b-10") Enter some words and numbers
 
           input(
             type="text"
@@ -27,7 +34,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             id="letters"
             value=`${initialInput}`
             autocomplete="off"
-            placeholder="Enter letters and numbers only"
+            placeholder="Letters [aA-zZ] and numbers [0-9] only"
             maxlength="50"
             required
           )
@@ -47,19 +54,19 @@ html(xmlns="http://www.w3.org/1999/xhtml")
                 min="1"
                 max=`${maxAmount}`
                 autocomplete="off"
-                placeholder="Enter any number 1-300"
+                placeholder="Any number 1-300"
                 required
               )
 
             section.colour-row.section-m-l-5.m-b-20
 
               span.colour-group.colour.active.width-50
-                label(for="colour", class="colour-label m-b-10") Select a colour&nbsp;
+                label(for="colour", class="colour-label m-b-10") Single colour&nbsp;
                   i(class="fas fa-check")
                 input(type="color", class="colour m-b-30 disabled", name="colour", value=`${initialColour}`)
 
               span.colour-group.multicolour.width-50.m-l-10
-                label(for="multi-colour", class="multicolour-label m-b-10") Select mixed colours&nbsp;
+                label(for="multi-colour", class="multicolour-label m-b-10") Mixed colours&nbsp;
                   i(class="fas fa-check")
                 input(type="button", class="btn multicolour m-b-30 disabled")
                 input(type="hidden", name="multicolour", value="0")

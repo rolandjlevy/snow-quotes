@@ -10,6 +10,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--font-family-sans-serif);
+  line-height: 1.5;
 }
 
 body {
@@ -120,6 +121,12 @@ a.link:hover {
   text-align: center;
 }
 
+.instructions {
+  font-size: 1rem;
+  line-height: 2;
+  margin-top: -10px;
+}
+
 @media only screen and (max-width: 535px) {
   h1, h2 {
     text-align: center;
@@ -131,6 +138,12 @@ a.link:hover {
     margin-right: 0;
   }
   .section-m-l-5 {
+    margin-left: 0;
+  }
+  .section-m-r-10 {
+    margin-right: 0;
+  }
+  .section-m-l-10 {
     margin-left: 0;
   }
 }
