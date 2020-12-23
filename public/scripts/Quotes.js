@@ -4,6 +4,7 @@ export default class Quotes {
   }
   // Fetching from quotes API
   fetchQuotes() {
+    const quotesApiUrl = 'https://type.fit/api/quotes';
     return new Promise((resolve, reject) => {
       return fetch(quotesApiUrl)
       .then(res => res.json())

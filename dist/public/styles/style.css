@@ -29,7 +29,7 @@ body {
 h1 {
   font-family: var(--font-family-serif);
   font-size: 3.4rem;
-  margin: 20px 0;
+  margin: 40px 0 20px 0;
   line-height: 1;
 }
 
@@ -124,6 +124,11 @@ a.link:hover {
   font-size: 1rem;
   line-height: 2;
   margin-top: -10px;
+}
+
+.instructions > ul {
+  margin: 0;
+  padding: 0 0 0 20px;
 }
 
 @media only screen and (max-width: 535px) {

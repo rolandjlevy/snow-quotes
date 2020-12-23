@@ -4,10 +4,9 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var pug = require('pug');
+var fs = require('fs');
 var shortUrl = require('node-url-shortener');
 var dotenv = require('dotenv');
-var port = process.env.PORT || 3000;
-var baseUrl = process.env.API_URL;
 
 app.use(function (req, res, next) {
   req.rawBody = '';
@@ -24,8 +23,6 @@ app.use(function (req, res, next) {
   res.locals.data = req.rawBody ? req.body : req.query;
   next();
 });
-
-app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   var initialInput = '';
@@ -61,7 +58,7 @@ var renderSnow = function renderSnow(_ref) {
     colour: colour,
     multicolour: multicolour,
     colours: colours,
-    baseUrl: baseUrl
+    quotesApiUrl: quotesApiUrl
   });
 };
 
@@ -81,30 +78,69 @@ var getShortUrl = function getShortUrl(longUrl) {
   });
 };
 
-var renameDistPackageJsonFile = function renameDistPackageJsonFile(views) {
+// const renameFiles = (views) => {
+//   if (views.includes('dist')) {
+//     const fs = require('fs');
+//     const oldPackagePath = path.join(__dirname, 'package-dist.json');
+//     const newPackagePath = path.join(__dirname, 'package.json');
+//     try {
+//       if (fs.existsSync(oldPackagePath)) {
+//         fs.rename(oldPackagePath, newPackagePath, (err) => {
+//           if (err) console.log('Error: ' + err);
+//         });
+//       }
+//     } catch(err) {
+//       console.error(err);
+//     }
+//     const oldEnvPath = path.join(__dirname, 'env.txt');
+//     const newEnvPath = path.join(__dirname, '.env');
+//     try {
+//       if (fs.existsSync(oldEnvPath)) {
+//         fs.rename(oldEnvPath, newEnvPath, (err) => {
+//           if (err) console.log('Error: ' + err);
+//         });
+//       }
+//     } catch(err) {
+//       console.error(err);
+//     }
+//   }
+// };
+
+var renameFile = function renameFile(oldFileName, newFileName) {
   if (views.includes('dist')) {
-    console.log({ views: views });
-    var fs = require('fs');
-    var oldPath = path.join(__dirname, 'package-dist.json');
-    var newPath = path.join(__dirname, 'package.json');
+    var oldPath = path.join(__dirname, oldFileName);
+    var newPath = path.join(__dirname, newFileName);
     try {
       if (fs.existsSync(oldPath)) {
-        console.log('rename');
         fs.rename(oldPath, newPath, function (err) {
           if (err) console.log('Error: ' + err);
         });
+        // if (newFileName = '.env') {
+        //   port = process.env.PORT || 4000;
+        //   quotesApiUrl = process.env.API_URL;
+        //   console.log({port, quotesApiUrl});
+        // }
       }
     } catch (err) {
       console.error(err);
     }
   }
 };
+
+app.use(express.static('public'));
 var views = path.join(__dirname, 'views');
-renameDistPackageJsonFile(views);
+
+var port = process.env.PORT || 3000;
+var quotesApiUrl = process.env.API_URL || 'https://type.fit/api/quotes';
+
+renameFile('package-dist.json', 'package.json');
+renameFile('env.txt', '.env');
+
 app.set('views', views);
 app.set('view engine', 'pug');
 
-var Colours = require('./public/src/Colours');
+var coloursPath = path.join(__dirname, '/public/src/Colours.js');
+var Colours = require(coloursPath);
 var colours = new Colours();
 
 app.listen(function () {

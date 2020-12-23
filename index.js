@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const pug = require('pug');
+const fs = require('fs');
 const shortUrl = require('node-url-shortener');
 const dotenv = require('dotenv');
-const port = process.env.PORT || 3000;
-const baseUrl = process.env.API_URL;
 
 app.use((req, res, next) => {
   req.rawBody = '';
@@ -20,8 +19,6 @@ app.use((req, res, next) => {
   res.locals.data = req.rawBody ? req.body : req.query;
   next();
 });
-
-app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   const initialInput = '';
@@ -50,7 +47,7 @@ const renderSnow = ({req, res}) => {
     colour,
     multicolour,
     colours,
-    baseUrl
+    quotesApiUrl
   });
 }
 
@@ -70,30 +67,69 @@ const getShortUrl = (longUrl) => {
   });
 }
 
-const renameDistPackageJsonFile = (views) => {
+// const renameFiles = (views) => {
+//   if (views.includes('dist')) {
+//     const fs = require('fs');
+//     const oldPackagePath = path.join(__dirname, 'package-dist.json');
+//     const newPackagePath = path.join(__dirname, 'package.json');
+//     try {
+//       if (fs.existsSync(oldPackagePath)) {
+//         fs.rename(oldPackagePath, newPackagePath, (err) => {
+//           if (err) console.log('Error: ' + err);
+//         });
+//       }
+//     } catch(err) {
+//       console.error(err);
+//     }
+//     const oldEnvPath = path.join(__dirname, 'env.txt');
+//     const newEnvPath = path.join(__dirname, '.env');
+//     try {
+//       if (fs.existsSync(oldEnvPath)) {
+//         fs.rename(oldEnvPath, newEnvPath, (err) => {
+//           if (err) console.log('Error: ' + err);
+//         });
+//       }
+//     } catch(err) {
+//       console.error(err);
+//     }
+//   }
+// };
+
+const renameFile = (oldFileName, newFileName) => {
   if (views.includes('dist')) {
-    console.log({views});
-    const fs = require('fs');
-    const oldPath = path.join(__dirname, 'package-dist.json');
-    const newPath = path.join(__dirname, 'package.json');
+    const oldPath = path.join(__dirname, oldFileName);
+    const newPath = path.join(__dirname, newFileName);
     try {
       if (fs.existsSync(oldPath)) {
-        console.log('rename');
-        fs.rename(oldPath, newPath, function (err) {
+        fs.rename(oldPath, newPath, (err) => {
           if (err) console.log('Error: ' + err);
         });
+        // if (newFileName = '.env') {
+        //   port = process.env.PORT || 4000;
+        //   quotesApiUrl = process.env.API_URL;
+        //   console.log({port, quotesApiUrl});
+        // }
       }
     } catch(err) {
       console.error(err);
     }
   }
-};
+}
+
+app.use(express.static('public'));
 const views = path.join(__dirname, 'views');
-renameDistPackageJsonFile(views);
+
+const port = process.env.PORT || 3000;
+const quotesApiUrl = process.env.API_URL || 'https://type.fit/api/quotes';
+
+renameFile('package-dist.json', 'package.json');
+renameFile('env.txt', '.env');
+
 app.set('views', views);
 app.set('view engine', 'pug');
 
-const Colours = require('./public/src/Colours');
+const coloursPath = path.join(__dirname, '/public/src/Colours.js');
+const Colours = require(coloursPath);
 const colours = new Colours();
 
 app.listen(() => {

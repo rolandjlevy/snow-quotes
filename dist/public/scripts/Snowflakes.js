@@ -37,7 +37,6 @@ var Snowflakes = function (_Utils) {
 
       this.$$('.snowflake').forEach(function (item) {
         item.addEventListener('mouseenter', function (e) {
-          console.log('mouseenter');
           if (!_this2.tooltipOn && !menu.inside(item)) {
             var pos = Number(e.currentTarget.id) || parseInt(e.currentTarget.id);
             var q = quotes.list[pos];

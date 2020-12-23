@@ -9,7 +9,7 @@ export default class Sharing extends Utils {
     this.sharingLinks = {
       whatsapp: 'https://wa.me/?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-+',
       facebook: 'https://www.facebook.com/sharer/sharer.php?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy&u=',
-      twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url='
+      twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,javascript,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url='
     }
     this.longUrl = location.origin + '/shorten?longurl=' + location.origin;
     this.getShortUrl(this.longUrl).then(url => {

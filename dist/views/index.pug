@@ -21,11 +21,18 @@ html(xmlns="http://www.w3.org/1999/xhtml")
           section.m-b-20.width-50
             img(src="images/snow-flakes-demo.gif" style="width:100%")
 
-          section.section-m-l-10.m-b-20.width-50.instructions Instructions: type some words and numbers to create various snowflake shapes, then enter the amount and colour you want. View the snow quotes by clicking on the 'SEE YOUR SNOW QUOTES' button. On the next page, hover your mouse over a snowflake to see the quote and click on it to copy the quote text. Share this app by copying it to the clipboard or clicking on the Twitter, WhatsApp or Facebook buttons.
-
+          section.section-m-l-10.m-b-20.width-50.instructions
+            strong INSTRUCTIONS 
+            ul
+              li Enter some letters &amp; numbers below
+              li Then enter an amount and select a colour
+              li Click on the 'SEE YOUR SNOW QUOTES' button to see the result on the next page
+              li Hover over the snowflakes to see the quotes and click on them to copy the text
+              li Share this with your friends by clicking on the share buttons below
+          
         form(method="post" action="/snow")
 
-          label(for="letters", class="m-b-10") Enter some words and numbers
+          label(for="letters", class="m-b-10") Enter some letters and numbers
 
           input(
             type="text"
@@ -80,17 +87,17 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             section.section-m-l-5.m-b-20
               input(type="text", class="hidden url")
 
-              a.section-m-r-10.width-25.m-b-10(type="button", class="btn copy disabled")
-                i(class="fas fa-copy")
-
               a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon whatsapp disabled", target="_blank")
                 i(class="fab fa-whatsapp")
 
               a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon twitter disabled", target="_blank")
                 i(class="fab fa-twitter")
 
-              a.width-25.m-b-10(type="button", class="btn icon facebook disabled", target="_blank")
+              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon facebook disabled", target="_blank")
                 i(class="fab fa-facebook")
+
+              a.width-25.m-b-10(type="button", class="btn copy disabled")
+                i(class="fas fa-copy")
 
         .toast-message.none 
           span.m-r-5 Copied to clipboard for sharing&nbsp;

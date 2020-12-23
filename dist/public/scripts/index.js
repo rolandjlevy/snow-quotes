@@ -104,4 +104,17 @@ $('input.colour').addEventListener('click', function (e) {
   validate();
 });
 
-// $('input.letters').focus();
+var mediaQueryMobile = 535;
+var initialFocus = false;
+
+var myObserver = new ResizeObserver(function (entries) {
+  entries.forEach(function (entry) {
+    var contentWidth = entry.contentRect.width;
+    if (contentWidth > mediaQueryMobile && !initialFocus) {
+      $('input.letters').focus();
+      initialFocus = true;
+    }
+  });
+});
+
+myObserver.observe($('body'));

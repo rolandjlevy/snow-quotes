@@ -26,6 +26,7 @@ var Quotes = function () {
     value: function fetchQuotes() {
       var _this2 = this;
 
+      var quotesApiUrl = 'https://type.fit/api/quotes';
       return new Promise(function (resolve, reject) {
         return fetch(quotesApiUrl).then(function (res) {
           return res.json();

@@ -8,10 +8,10 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,README.md,./package.json,./.babelrc,./npm-debug.log --copy-files",
-    "copy": "cp package.json dist/",
-    "start": "node dist/index.js",
+    "copy": "cp ./package.json dist/",
     "deploy-sh": "npm run build && sh deploy.sh",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,README.md,./package.json,./.babelrc,./npm-debug.log --copy-files",
+    "start": "node dist/index.js",
     "deploy": "npm run build && npm run start"
   },
   "dependencies": {

@@ -8,7 +8,6 @@ export default class Snowflakes extends Utils {
   init(toast, menu, quotes) {
     this.$$('.snowflake').forEach(item => {
       item.addEventListener('mouseenter', (e) => {
-        console.log('mouseenter');
         if (!this.tooltipOn && !menu.inside(item)) {
           const pos = Number(e.currentTarget.id) || parseInt(e.currentTarget.id);
           const q = quotes.list[pos];
