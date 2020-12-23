@@ -5,7 +5,7 @@ Fill the night sky with gently falling snowflakes each of which reveals an inspi
 ![Demo gif](https://github.com/rolandjlevy/snow-quotes/blob/master/public/images/snow-flakes-demo.gif?raw=true)
 
 ### Links 🔗
-- [See the demo](https://snow-quotes.rolandjlevy.repl.co)
+- [See the demo](https://snow-quotes.rolandjlevy.repl.co/)
 - [View the source code](https://repl.it/@RolandJLevy/snow-quotes)
 - [Explore the Github repo](https://github.com/rolandjlevy/snow-quotes)
 
