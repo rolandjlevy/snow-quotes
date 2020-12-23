@@ -90,7 +90,6 @@ const myObserver = new ResizeObserver(entries => {
     if (contentWidth > mediaQueryMobile && !initialFocus) {
       $('input.letters').focus();
       initialFocus = true;
-      console.log("$('input.letters').focus()");
     }
   });
 });
