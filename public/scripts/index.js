@@ -81,4 +81,18 @@ $('input.colour').addEventListener('click', (e) => {
   validate();
 });
 
-// $('input.letters').focus();
+const mediaQueryMobile = 535;
+let initialFocus = false;
+
+const myObserver = new ResizeObserver(entries => {
+  entries.forEach(entry => {
+    const contentWidth = entry.contentRect.width;
+    if (contentWidth > mediaQueryMobile && !initialFocus) {
+      $('input.letters').focus();
+      initialFocus = true;
+      console.log("$('input.letters').focus()");
+    }
+  });
+});
+
+myObserver.observe($('body'));
