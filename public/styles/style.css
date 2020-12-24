@@ -34,7 +34,7 @@ h1 {
 }
 
 h2 {
-  margin: 0 0 30px 0;
+  margin: 0 0 40px 0;
   font-family: var(--font-family-serif);
   font-size: 1.75rem;
   font-style: italic;
@@ -49,12 +49,13 @@ h2 {
 }
 
 main.container {
-  width: 75vw;
+  width: 85vw;
   max-width: 640px;
 }
 
 .hidden {
   position: absolute; 
+  left: 0;
   left: -99999px;
 }
 
@@ -120,6 +121,25 @@ a.link:hover {
   text-align: center;
 }
 
+/****************/
+/* Instructions */
+/****************/
+
+.instructions-container {
+  opacity: 0;
+  min-height: 0;
+  height: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.instructions-container.open {
+  opacity: 1;
+  min-height: 260px;
+  height: auto;
+  transition: all 0.5s ease-in-out;
+}
+
 .instructions {
   font-size: 1rem;
   line-height: 2;
@@ -129,6 +149,13 @@ a.link:hover {
 .instructions > ul {
   margin: 0;
   padding: 0 0 0 20px;
+}
+
+.instructions-btn {
+  padding: 6px 6px;
+  height: auto;
+  pointer-events: initial;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 535px) {
@@ -146,5 +173,8 @@ a.link:hover {
   }
   .section-m-l-10 {
     margin-left: 0;
+  }
+  .instructions-container.open {
+    min-height: 555px;
   }
 }

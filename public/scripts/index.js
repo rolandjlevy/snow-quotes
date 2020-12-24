@@ -24,12 +24,13 @@ const validate = () => {
   }
   toggleButtons('remove');
   $('.btn.start').href = sharing.getQueryString();
-  $('input.hidden.url').value = location.origin + sharing.getQueryString();
+  // This applies the user's settings to the hidden url field
+  // $('input.hidden.url').value = location.origin + sharing.getQueryString();
 }
 
 // Toggle disabled state of all buttons
 const toggleButtons = (action) => {
-  $$('.btn, input.colour').forEach(item => {
+  $$('.btn.start, .btn.multicolour, input.colour').forEach(item => {
     item.classList[action]('disabled');
   });
 }
@@ -79,6 +80,11 @@ $('input.colour').addEventListener('click', (e) => {
   $('.colour-group.multicolour').classList.remove('active');
   $('input[name=multicolour]').value = 0;
   validate();
+});
+
+// Show / hide instructions
+$('.instructions-btn').addEventListener('click', (e) => {
+  $('.instructions-container').classList.toggle('open');
 });
 
 const mediaQueryMobile = 535;

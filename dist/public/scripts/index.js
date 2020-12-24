@@ -42,12 +42,13 @@ var validate = function validate() {
   }
   toggleButtons('remove');
   $('.btn.start').href = sharing.getQueryString();
-  $('input.hidden.url').value = location.origin + sharing.getQueryString();
+  // This applies the user's settings to the hidden url field
+  // $('input.hidden.url').value = location.origin + sharing.getQueryString();
 };
 
 // Toggle disabled state of all buttons
 var toggleButtons = function toggleButtons(action) {
-  $$('.btn, input.colour').forEach(function (item) {
+  $$('.btn.start, .btn.multicolour, input.colour').forEach(function (item) {
     item.classList[action]('disabled');
   });
 };
@@ -102,6 +103,11 @@ $('input.colour').addEventListener('click', function (e) {
   $('.colour-group.multicolour').classList.remove('active');
   $('input[name=multicolour]').value = 0;
   validate();
+});
+
+// Show / hide instructions
+$('.instructions-btn').addEventListener('click', function (e) {
+  $('.instructions-container').classList.toggle('open');
 });
 
 var mediaQueryMobile = 535;

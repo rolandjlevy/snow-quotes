@@ -16,18 +16,23 @@ html(xmlns="http://www.w3.org/1999/xhtml")
         h1 Snow Quotes
         h2 Create a sky of snowflakes, each of which reveals an inspirational quote you can share with your friends
 
-        .fieldset
+        p.m-b-20
+          i(class="fas fa-question-circle m-r-5")
+          span Learn to play by reading the 
+          span.instructions-btn.btn instructions
+
+        .fieldset.instructions-container
 
           section.m-b-20.width-50
             img(src="images/snow-flakes-demo.gif" style="width:100%")
 
           section.section-m-l-10.m-b-20.width-50.instructions
-            strong INSTRUCTIONS 
+            // strong INSTRUCTIONS 
             ul
               li Enter some letters &amp; numbers below
               li Then enter an amount and select a colour
               li Click on the 'SEE YOUR SNOW QUOTES' button to see the result on the next page
-              li Hover over the snowflakes to see the quotes and click on them to copy the text
+              li Hover over the snowflakes to see the quotes and click on them to copy the quote text
               li Share this with your friends by clicking on the share buttons below
           
         form(method="post" action="/snow")
@@ -46,7 +51,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             required
           )
 
-          .display-text.m-b-20 #{initialInput}
+          .display-text #{initialInput}
 
           .fieldset
 
@@ -87,16 +92,16 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             section.section-m-l-5.m-b-20
               input(type="text", class="hidden url")
 
-              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon whatsapp disabled", target="_blank")
+              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon whatsapp", target="_blank")
                 i(class="fab fa-whatsapp")
 
-              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon twitter disabled", target="_blank")
+              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon twitter", target="_blank")
                 i(class="fab fa-twitter")
 
-              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon facebook disabled", target="_blank")
+              a.section-m-r-10.width-25.m-b-10(type="button", class="btn icon facebook", target="_blank")
                 i(class="fab fa-facebook")
 
-              a.width-25.m-b-10(type="button", class="btn copy disabled")
+              a.width-25.m-b-10(type="button", class="btn copy")
                 i(class="fas fa-copy")
 
         .toast-message.none 

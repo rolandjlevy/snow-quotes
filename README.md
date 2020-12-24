@@ -1,6 +1,6 @@
 # ❄️ Snow Quotes ❄️ 
 
-Fill the night sky with gently falling snowflakes each of which reveals an inspirational quotes when you hover over it 💬
+Fill the night sky with gently falling snowflakes each of which reveals an inspirational quote when you hover over it 💬
 
 ![Demo gif](https://github.com/rolandjlevy/snow-quotes/blob/master/public/images/snow-flakes-demo.gif?raw=true)
 
@@ -8,12 +8,15 @@ Fill the night sky with gently falling snowflakes each of which reveals an inspi
 - [See the demo](https://snow-quotes.rolandjlevy.repl.co/)
 - [View the source code](https://repl.it/@RolandJLevy/snow-quotes)
 - [Explore the Github repo](https://github.com/rolandjlevy/snow-quotes)
+- Share on [WhatsApp](
+https://wa.me/?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-+https://cdpt.in/NTMyNTM=), [Twitter](https://twitter.com/intent/tweet?hashtags=node,express,pug,javascript,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url=https://cdpt.in/NTMyNTM=) or [Facebook](https://www.facebook.com/sharer/sharer.php?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy&u=https://cdpt.in/NTMyNTM=) 👍
 
 ### Features 💡
 - Customise your Snow Quotes with various letters and numbers, select the amount and colour of snowflakes
-- Either click on the **SEE YOUR SNOW QUOTES** button or copy the link to your clipboard so you can share the settings
+- Click on the 'SEE YOUR SNOW QUOTES' button to see the result on the next page
 - Hover your mouse over each snowflake to reveal an inspirational quote
-- Click on a snowflake to copy the quote text to your clipboard 
+- Click on a snowflake to copy the quote text
+- Share this app with your friends by clicking on the share buttons 👍
 
 ### How it works ⚙️
 - Built from scratch with Node, Express and pug template engine on the back end
