@@ -78,34 +78,6 @@ var getShortUrl = function getShortUrl(longUrl) {
   });
 };
 
-// const renameFiles = (views) => {
-//   if (views.includes('dist')) {
-//     const fs = require('fs');
-//     const oldPackagePath = path.join(__dirname, 'package-dist.json');
-//     const newPackagePath = path.join(__dirname, 'package.json');
-//     try {
-//       if (fs.existsSync(oldPackagePath)) {
-//         fs.rename(oldPackagePath, newPackagePath, (err) => {
-//           if (err) console.log('Error: ' + err);
-//         });
-//       }
-//     } catch(err) {
-//       console.error(err);
-//     }
-//     const oldEnvPath = path.join(__dirname, 'env.txt');
-//     const newEnvPath = path.join(__dirname, '.env');
-//     try {
-//       if (fs.existsSync(oldEnvPath)) {
-//         fs.rename(oldEnvPath, newEnvPath, (err) => {
-//           if (err) console.log('Error: ' + err);
-//         });
-//       }
-//     } catch(err) {
-//       console.error(err);
-//     }
-//   }
-// };
-
 var renameFile = function renameFile(oldFileName, newFileName) {
   if (views.includes('dist')) {
     var oldPath = path.join(__dirname, oldFileName);
@@ -115,11 +87,6 @@ var renameFile = function renameFile(oldFileName, newFileName) {
         fs.rename(oldPath, newPath, function (err) {
           if (err) console.log('Error: ' + err);
         });
-        // if (newFileName = '.env') {
-        //   port = process.env.PORT || 4000;
-        //   quotesApiUrl = process.env.API_URL;
-        //   console.log({port, quotesApiUrl});
-        // }
       }
     } catch (err) {
       console.error(err);
@@ -134,7 +101,7 @@ var port = process.env.PORT || 3000;
 var quotesApiUrl = process.env.API_URL || 'https://type.fit/api/quotes';
 
 renameFile('package-dist.json', 'package.json');
-renameFile('env.txt', '.env');
+renameFile('data.txt', '.env');
 
 app.set('views', views);
 app.set('view engine', 'pug');

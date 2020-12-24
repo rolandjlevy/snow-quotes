@@ -18,6 +18,7 @@ var withinFontFaceSet = function withinFontFaceSet(str) {
   return (/^[0-9a-zA-Z.]+$/g.test(str)
   );
 };
+// NOT: 123790ESHN
 
 var sharing = new _Sharing2.default();
 
@@ -53,10 +54,29 @@ var toggleButtons = function toggleButtons(action) {
   });
 };
 
+var bad = '1234790ESHN'.split('');
+var good = 'throughwave'.split('');
+
+function transform(str) {
+  return str.split('').reduce(function (acc, item) {
+    if (bad.includes(item)) {
+      var foundPos = bad.findIndex(function (i) {
+        return i == item;
+      });
+      acc += good[foundPos];
+    } else {
+      acc += item;
+    }
+    return acc;
+  }, '');
+}
+
 // Validate input for letters (a-z and 0-9)
 $('input.letters').addEventListener('input', function (e) {
   var input = e.target.value;
-  $('.display-text').textContent = input;
+  var transformed = transform(input);
+  $('.display-text').textContent = transformed;
+  $('input.letters').value = transformed;
   if (isTag(input)) {
     e.target.value = '⚠️';
     return;

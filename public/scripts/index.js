@@ -1,5 +1,6 @@
 const isTag = (str) => /<[^>]*>/g.test(str);
 const withinFontFaceSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
+// NOT: 123790ESHN
 
 import Sharing from './Sharing.js';
 const sharing = new Sharing();
@@ -35,10 +36,27 @@ const toggleButtons = (action) => {
   });
 }
 
+const bad = '1234790ESHN'.split('');
+const good = 'throughwave'.split('');
+
+function transform(str){
+  return str.split('').reduce((acc, item) => {
+    if (bad.includes(item)) {
+      const foundPos = bad.findIndex(i => i == item);
+      acc += good[foundPos];
+    } else {
+      acc += item;
+    }
+    return acc;
+  }, '');
+}
+
 // Validate input for letters (a-z and 0-9)
 $('input.letters').addEventListener('input', (e) => {
   const input = e.target.value;
-  $('.display-text').textContent = input;
+  const transformed = transform(input);
+  $('.display-text').textContent = transformed;
+  $('input.letters').value = transformed;
   if (isTag(input)) {
     e.target.value = '⚠️';
     return;
