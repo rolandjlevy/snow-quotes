@@ -37,7 +37,7 @@ const toggleButtons = (action) => {
 }
 
 const bad = '1234790ESHN'.split('');
-const good = 'throughwave'.split('');
+const good = 'IZeATgOeshn'.split('');
 
 function transform(str){
   return str.split('').reduce((acc, item) => {

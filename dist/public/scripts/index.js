@@ -55,7 +55,7 @@ var toggleButtons = function toggleButtons(action) {
 };
 
 var bad = '1234790ESHN'.split('');
-var good = 'throughwave'.split('');
+var good = 'IZeATgOeshn'.split('');
 
 function transform(str) {
   return str.split('').reduce(function (acc, item) {
