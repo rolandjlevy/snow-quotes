@@ -1,9 +1,10 @@
 const isTag = (str) => /<[^>]*>/g.test(str);
 const withinFontFaceSet = (str) => /^[0-9a-zA-Z.]+$/g.test(str);
-// NOT: 123790ESHN
 
 import Sharing from './Sharing.js';
 const sharing = new Sharing();
+const testUrl = 'https://snow-quotes.rolandjlevy.repl.co/snow?letters=HelloJhey&quantity=100&colour=%23e1e1ee&multicolour=0';
+// sharing.test(testUrl);
 
 import Toast from './Toast.js';
 const toast = new Toast();

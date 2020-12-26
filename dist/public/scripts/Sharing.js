@@ -31,6 +31,14 @@ var Sharing = function (_Utils) {
   }
 
   _createClass(Sharing, [{
+    key: 'test',
+    value: function test(longUrl) {
+      var url = location.origin + '/shorten?longurl=' + longUrl;
+      this.getShortUrl(url).then(function (result) {
+        console.log(result);
+      });
+    }
+  }, {
     key: 'init',
     value: function init() {
       var _this2 = this;

@@ -5,6 +5,12 @@ export default class Sharing extends Utils {
     super();
     this.init();
   }
+  test(longUrl) {
+    const url = location.origin + '/shorten?longurl=' + longUrl;
+    this.getShortUrl(url).then(result => {
+      console.log(result);
+    });
+  }
   init() {
     this.sharingLinks = {
       whatsapp: 'https://wa.me/?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-+',

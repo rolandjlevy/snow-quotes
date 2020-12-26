@@ -18,9 +18,11 @@ var withinFontFaceSet = function withinFontFaceSet(str) {
   return (/^[0-9a-zA-Z.]+$/g.test(str)
   );
 };
-// NOT: 123790ESHN
 
 var sharing = new _Sharing2.default();
+var testUrl = 'https://snow-quotes.rolandjlevy.repl.co/snow?letters=HelloJhey&quantity=100&colour=%23e1e1ee&multicolour=0';
+// console.log('testUrl: ', testUrl);
+sharing.test(testUrl);
 
 var toast = new _Toast2.default();
 toast.init();
