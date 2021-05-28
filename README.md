@@ -1,8 +1,8 @@
 # ❄️ Snow Quotes ❄️ 
 
-Fill the night sky with gently falling snowflakes each of which reveals an inspirational quote when you hover over it 💬
+Customise and share a sky full of snowflakes. Each one reveals a quote when you hover over it 💬
 
-![Demo gif](https://github.com/rolandjlevy/snow-quotes/blob/master/public/images/snow-flakes-demo.gif?raw=true)
+![Demo gif](./public/images/snow-flakes-demo.gif)
 
 ### Links 🔗
 - [See the demo](https://snow-quotes.rolandjlevy.repl.co/)
@@ -24,6 +24,6 @@ https://wa.me/?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-+https://cdpt
 - Completely responsive and mobile friendly
 - Inspired by [this Pug and CSS Workshop](https://www.youtube.com/watch?v=vvg4vilqWVs) by one of my favourite developers 🌟 [@Jhey](https://twitter.com/jh3yy)🌟
 - Using the [node-url-shortener node package](https://www.npmjs.com/package/node-url-shortener) to shorten the URL for sharing
-- The quotes are fetched from an API shown in this [freecodecamp.org article](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373)
+- The quotes are fetched from an API from this [freecodecamp.org article](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373)
 - The snowflake symbols are from the [Mandala font](https://www.fontspace.com/mandalas-font-f30143) using the @font-face rule
 - Form validation restricts keys to 0-9, a-z and A-Z
