@@ -76,7 +76,6 @@ var renderSnow = function renderSnow(_ref) {
 app.get('/shorten', function (req, res) {
   var longUrl = decodeURI(req.query.longurl);
   getShortUrl(longUrl).then(function (result) {
-    console.log('/shorten result:', result);
     res.send(result);
   }).catch(function (err) {
     console.log('/shorten error:', err);
