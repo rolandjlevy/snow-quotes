@@ -48,8 +48,9 @@ var Sharing = function (_Utils) {
         facebook: 'https://www.facebook.com/sharer/sharer.php?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy&u=',
         twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,javascript,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url='
       };
-      this.longUrl = location.origin + '/shorten?longurl=' + location.origin;
+      this.longUrl = location.origin + '/shorten?longurl=' + encodeURIComponent(location.origin);
       this.getShortUrl(this.longUrl).then(function (url) {
+        console.log('getShortUrl', url);
         $('input.hidden.url').value = url;
         $('.btn.whatsapp').href = _this2.sharingLinks['whatsapp'] + url;
         $('.btn.twitter').href = _this2.sharingLinks['twitter'] + url;
@@ -76,6 +77,7 @@ var Sharing = function (_Utils) {
         }).then(function (data) {
           resolve(data);
         }).catch(function (err) {
+          console.log('getShortUrl error:', err);
           reject(err);
         });
       });

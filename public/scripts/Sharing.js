@@ -17,8 +17,9 @@ export default class Sharing extends Utils {
       facebook: 'https://www.facebook.com/sharer/sharer.php?text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy&u=',
       twitter: 'https://twitter.com/intent/tweet?hashtags=node,express,pug,javascript,css&text=Check+out+the+Snow+Quotes+app+by+@rolandjlevy+-&url='
     }
-    this.longUrl = location.origin + '/shorten?longurl=' + location.origin;
+    this.longUrl = location.origin + '/shorten?longurl=' + encodeURIComponent(location.origin);
     this.getShortUrl(this.longUrl).then(url => {
+      console.log('getShortUrl', url)
       $('input.hidden.url').value = url;
       $('.btn.whatsapp').href = this.sharingLinks['whatsapp'] + url;
       $('.btn.twitter').href = this.sharingLinks['twitter'] + url;
@@ -37,11 +38,14 @@ export default class Sharing extends Utils {
   getShortUrl(url) {
     return new Promise((resolve, reject) => {
       return fetch(url)
-      .then(res => res.text())
+      .then(res => {
+        return res.text();
+      })
       .then(data => {
         resolve(data);
       })
       .catch(err => {
+        console.log('getShortUrl error:', err);
         reject(err);
       });
     });

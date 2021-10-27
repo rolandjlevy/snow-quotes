@@ -5,6 +5,7 @@ var app = express();
 var path = require('path');
 var pug = require('pug');
 var fs = require('fs');
+var cors = require('cors');
 var shortUrl = require('node-url-shortener');
 var dotenv = require('dotenv');
 
@@ -18,6 +19,16 @@ app.use(function (req, res, next) {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+app.use(function (req, res, next) {
+  var origins = ['https://snow-quotes.rolandjlevy.repl.co/'];
+  if (origins.includes(req.query.origin)) {
+    res.header("Access-Control-Allow-Origin", req.query.origin);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  }
+  next();
+});
 
 app.use(function (req, res, next) {
   res.locals.data = req.rawBody ? req.body : req.query;
@@ -65,7 +76,10 @@ var renderSnow = function renderSnow(_ref) {
 app.get('/shorten', function (req, res) {
   var longUrl = decodeURI(req.query.longurl);
   getShortUrl(longUrl).then(function (result) {
+    console.log('/shorten result:', result);
     res.send(result);
+  }).catch(function (err) {
+    console.log('/shorten error:', err);
   });
 });
 
